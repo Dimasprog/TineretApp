@@ -56,8 +56,11 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
+		<string>CMGSans-BoldRounded.ttf</string>
+		<string>CMGSans-SemiBoldItalic.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>
+		<string>ExtraThin.ttf</string>
 		<string>Feather.ttf</string>
 		<string>FontAwesome.ttf</string>
 		<string>FontAwesome5_Brands.ttf</string>
@@ -68,8 +71,11 @@
 		<string>Ionicons.ttf</string>
 		<string>MaterialCommunityIcons.ttf</string>
 		<string>MaterialIcons.ttf</string>
+		<string>Nunito.ttf</string>
 		<string>Octicons.ttf</string>
+		<string>Rocko.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
+		<string>Thin.ttf</string>
 		<string>Zocial.ttf</string>
 	</array>
 </dict>

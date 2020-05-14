@@ -52,6 +52,13 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = TineretApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TineretApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TineretApp/main.m; sourceTree = "<group>"; };
+		1B8A02C6246CDD440036A38C /* Cronus.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Cronus.otf; path = ../src/assets/fonts/Cronus.otf; sourceTree = "<group>"; };
+		1B8A02C7246CDD440036A38C /* Rocko.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Rocko.ttf; path = ../src/assets/fonts/Rocko.ttf; sourceTree = "<group>"; };
+		1B8A02C8246CDD440036A38C /* CMGSans-BoldRounded.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CMGSans-BoldRounded.ttf"; path = "../src/assets/fonts/CMGSans-BoldRounded.ttf"; sourceTree = "<group>"; };
+		1B8A02C9246CDD440036A38C /* CMGSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CMGSans-SemiBoldItalic.ttf"; path = "../src/assets/fonts/CMGSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		1B8A02CA246CDD440036A38C /* Nunito.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Nunito.ttf; path = ../src/assets/fonts/Nunito.ttf; sourceTree = "<group>"; };
+		1B8A02CB246CDD440036A38C /* Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Thin.ttf; path = ../src/assets/fonts/Thin.ttf; sourceTree = "<group>"; };
+		1B8A02CC246CDD440036A38C /* ExtraThin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ExtraThin.ttf; path = ../src/assets/fonts/ExtraThin.ttf; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* TineretApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TineretApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* TineretApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TineretApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32218465389D43F9B2811A5F /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
@@ -166,6 +173,13 @@
 		583DADDEF3E24FF2891B6FD5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B8A02C8246CDD440036A38C /* CMGSans-BoldRounded.ttf */,
+				1B8A02C9246CDD440036A38C /* CMGSans-SemiBoldItalic.ttf */,
+				1B8A02C6246CDD440036A38C /* Cronus.otf */,
+				1B8A02CC246CDD440036A38C /* ExtraThin.ttf */,
+				1B8A02CA246CDD440036A38C /* Nunito.ttf */,
+				1B8A02C7246CDD440036A38C /* Rocko.ttf */,
+				1B8A02CB246CDD440036A38C /* Thin.ttf */,
 				D43DB2A857DB4B7586A55C8C /* AntDesign.ttf */,
 				13190406495D4389A966EE9D /* Entypo.ttf */,
 				68089B900FE24809B7B09A64 /* EvilIcons.ttf */,
@@ -402,7 +416,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		128530AB1769E0241A0B0975 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -486,7 +500,7 @@
 		};
 		663C961C909EF78803AADD5D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (

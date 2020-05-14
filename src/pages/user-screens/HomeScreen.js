@@ -11,12 +11,12 @@ import {
   Vibration,
 } from 'react-native';
 import ActivityCard from '../../components/ActivityCard';
-import {images, text, border} from '../../../constants';
+import {images, text, border, fonts} from '../../../constants';
 import {colors} from '../../ColorSchemes';
 import Orientation from 'react-native-orientation';
 import LinearGradient from 'react-native-linear-gradient';
 import {Icon} from 'react-native-elements';
-import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 function HomeScreen({navigation}) {
   useEffect(() => {
@@ -46,7 +46,7 @@ function HomeScreen({navigation}) {
       colors={[colors.main, colors.background]}
       style={mainContainer}>
       <StatusBar backgroundColor={colors.status_bar.alternative} />
-      <SafeAreaView>
+      <SafeAreaView style={{marginBottom: hp(3)}}>
         <View style={headerContainer}>
           <TouchableOpacity onLongPress={switchScreen('Login')}>
             <Image source={images.logo} style={logoStyle} />
@@ -70,7 +70,6 @@ function HomeScreen({navigation}) {
           <ActivityCard picture={images.idea} onPress={switchScreen('Idea')} />
           <ActivityCard picture={images.review} onPress={switchScreen('Review')} />
         </View>
-
         <Text style={copyRightText}>{text.copyRight}</Text>
       </SafeAreaView>
     </LinearGradient>
@@ -108,7 +107,7 @@ const styles = StyleSheet.create({
   },
   copyRightText: {
     color: colors.copy_right,
-    // fontFamily: fonts.thin,
+    fontFamily: fonts.thin,
     position: 'absolute',
     textAlign: 'center',
     alignSelf: 'center',
