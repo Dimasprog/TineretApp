@@ -1,9 +1,9 @@
+import React from 'react';
 import {TouchableOpacity, StyleSheet, View, Text, Platform} from 'react-native';
+import {fonts} from '../../constants';
+import {colors} from "../ColorSchemes";
 import {Icon} from 'react-native-elements';
 import {widthPercentageToDP as wp} from "react-native-responsive-screen";
-// import {fonts} from '../../constants';
-import React from 'react';
-import {colors} from "../ColorSchemes";
 
 function Header (props) {
 
