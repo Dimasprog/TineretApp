@@ -1,6 +1,6 @@
 import React from 'react';
-import {Keyboard, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {border} from '../../constants';
+import {Keyboard, Platform, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
 import Lyrics from './Lyrics';
 import LinearGradient from 'react-native-linear-gradient';
@@ -31,14 +31,14 @@ function TrackCard({song, lyrics, navigation}) {
 
   const headerTitleStyle = {
     color: colors.main_font,
-    // fontFamily: setTrackProperties(song).fontName,
+    fontFamily: Platform.OS === 'ios' ? null : setTrackProperties(song).fontName,
     fontSize: setTrackProperties(song).fontSize,
     alignSelf: 'center',
   };
 
   const titleCardStyle = {
     color: colors.main_font,
-    // fontFamily: setTrackProperties(song).fontName,
+    fontFamily: Platform.OS === 'ios' ? null : setTrackProperties(song).fontName,
     fontSize: setTrackProperties(song).fontSize,
     paddingHorizontal: border.lateral_span,
     paddingVertical: border.top_span,
@@ -46,7 +46,7 @@ function TrackCard({song, lyrics, navigation}) {
 
   const lyricsStyle = {
     color: colors.second_font,
-    // fontFamily: setTrackProperties(song).fontName,
+    fontFamily: Platform.OS === 'ios' ? null : setTrackProperties(song).fontName,
     fontSize: setTrackProperties(song).fontSize + 1,
     marginTop: border.lateral_span,
     marginBottom: border.lateral_span * 2,

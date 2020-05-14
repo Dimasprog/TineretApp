@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, Platform} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
   textMessage: {
     color: colors.second_font,
-    // fontFamily: fonts.rounded,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     fontSize: wp(7),
     textAlign: 'center',
   },

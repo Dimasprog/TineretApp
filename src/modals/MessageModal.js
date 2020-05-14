@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {Platform, StyleSheet, TextInput, View} from 'react-native';
 import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
 import ModalButton from '../components/ModalButton';
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     color: colors.main_font,
     minHeight: hp(30),
     maxHeight: hp(45),
-    // fontFamily: fonts.thin,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.thin,
     textAlignVertical: 'top',
     fontSize: wp(4),
   },

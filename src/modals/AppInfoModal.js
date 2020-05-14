@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
 import {
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   modalTextContent: {
     color: colors.main_font,
-    // fontFamily: fonts.cronus,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.cronus,
     textAlign: 'center',
     fontSize: hp(3),
   }

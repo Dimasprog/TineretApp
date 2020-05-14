@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, Text, TouchableOpacity, AppState} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity, AppState, Platform} from 'react-native';
 import {fonts, border, text} from '../../constants';
 import {colors} from '../ColorSchemes';
 import StarRating from 'react-native-star-rating';
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: colors.reviewCardTitle,
-    // fontFamily: fonts.rounded,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     fontSize: wp(5),
     marginLeft: border.lateral_span * 2,
   },

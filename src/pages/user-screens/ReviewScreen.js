@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {AppState, Keyboard, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {AppState, Keyboard, Platform, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Modal from 'react-native-modal';
 import {border, fonts, ratingCards} from '../../../constants';
 import {colors} from '../../ColorSchemes';
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   },
   pickerTitle: {
     color: colors.main_font,
-    // fontFamily: fonts.rounded,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     textAlign: 'center',
     fontSize: wp(4.5),
   },
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   },
   pickerButtonText: {
     color: colors.second_font,
-    // fontFamily: fonts.rounded,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     textAlign: 'center',
     padding: wp(0.5),
     paddingLeft: wp(2),

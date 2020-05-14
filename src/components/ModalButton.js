@@ -1,4 +1,4 @@
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {Platform, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   modalButtonText: {
     color: colors.second_font,
-    // fontFamily: fonts.xthin,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.xthin,
     textAlign: 'center',
     fontSize: hp(2.5),
   },

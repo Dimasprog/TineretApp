@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StatusBar, StyleSheet, Switch, Text, TouchableOpacity, View} from 'react-native';
+import {Platform, StatusBar, StyleSheet, Switch, Text, TouchableOpacity, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {colors} from '../../ColorSchemes';
 import {border, fonts} from '../../../constants';
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   },
   settingText: {
     fontSize: wp(5),
-    // fontFamily: fonts.rounded,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     color: colors.second_font,
   },
   rowContainer: {

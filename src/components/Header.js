@@ -1,4 +1,4 @@
-import {TouchableOpacity, StyleSheet, View, Text} from 'react-native';
+import {TouchableOpacity, StyleSheet, View, Text, Platform} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {widthPercentageToDP as wp} from "react-native-responsive-screen";
 // import {fonts} from '../../constants';
@@ -21,7 +21,7 @@ function Header (props) {
       </TouchableOpacity>
       <Text style={{
         color: themeColor,
-        // fontFamily: style === undefined ? fonts.rounded : style.fontFamily,
+        fontFamily: style === undefined ? Platform.OS === 'ios' ? null : fonts.rounded : style.fontFamily,
         fontSize: style === undefined ? wp(6.5) : style.fontSize - wp(1),
         alignSelf: 'center',
       }}>

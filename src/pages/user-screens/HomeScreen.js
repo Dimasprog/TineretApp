@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   StatusBar,
   SafeAreaView,
-  Vibration,
+  Vibration, Platform,
 } from 'react-native';
 import ActivityCard from '../../components/ActivityCard';
 import {images, text, border, fonts} from '../../../constants';
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     marginBottom: border.top_span,
   },
   headerTitle: {
-    // fontFamily: fonts.rounded,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     color: 'white',
     textAlign: 'center',
     fontSize: wp(6),
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   },
   copyRightText: {
     color: colors.copy_right,
-    fontFamily: fonts.thin,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.thin,
     position: 'absolute',
     textAlign: 'center',
     alignSelf: 'center',

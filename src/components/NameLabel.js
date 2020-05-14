@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Keyboard, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Keyboard, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
 import {widthPercentageToDP as wp} from "react-native-responsive-screen";
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   textInputStyle: {
     color: colors.main_font,
-    // fontFamily: fonts.rocko,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rocko,
     padding: 0,
     width: wp(68) - border.lateral_span,
     fontSize: wp(5.2),
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: colors.second_font,
-    // fontFamily: fonts.rounded,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     textAlign: 'center',
     padding: wp(0.5),
     paddingLeft: wp(2),

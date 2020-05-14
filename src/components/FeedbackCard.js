@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
@@ -60,17 +60,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   topTextStyle: {
-    // fontFamily: fonts.medium,
-    color: colors.second_font,
+    fontFamily: fonts.medium,
+    color: Platform.OS === 'ios' ? null : colors.second_font,
     fontSize: wp(4),
   },
   typeStyle: {
-    // fontFamily: fonts.rounded,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     color: colors.second_font,
     fontSize: wp(4),
   },
   messageStyle: {
-    // fontFamily: fonts.xthin,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.xthin,
     color: colors.second_font,
     marginVertical: hp(1.5),
     fontSize: wp(4),
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   ratingStyle: {
-    // fontFamily: fonts.rocko,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rocko,
     color: colors.second_font,
     fontSize: wp(4),
   },

@@ -9,6 +9,7 @@ import ReviewDisplayScreen from '../admin-screens/ReviewDisplayScreen';
 import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import {Platform} from "react-native";
 
 
 function FeedBackRoot () {
@@ -24,7 +25,7 @@ function FeedBackRoot () {
     },
     labelStyle: {
       fontSize: wp(6),
-      // fontFamily: fonts.rounded,
+      fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     }
   };
 

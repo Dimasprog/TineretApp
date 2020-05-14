@@ -3,7 +3,7 @@ import {
   AppState,
   BackHandler,
   FlatList,
-  Keyboard,
+  Keyboard, Platform,
   RefreshControl,
   SafeAreaView,
   StatusBar,
@@ -253,7 +253,7 @@ const styles = StyleSheet.create({
   searchInput: {
     backgroundColor: colors.search_bar.background,
     color: colors.search_bar.color,
-    // fontFamily: fonts.medium,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.medium,
     borderRadius: border.radius,
     width: wp(76),
     paddingLeft: wp(2.5),
@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
   },
   backButtonText: {
     color: colors.main_font,
-    // fontFamily: fonts.rounded,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     fontSize: wp(6),
     shadowColor: colors.shadow_color,
     shadowOpacity: 1,

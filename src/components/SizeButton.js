@@ -1,4 +1,4 @@
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {Platform, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   sizeButtonText: {
     color: colors.main_font,
-    // fontFamily: fonts.rounded,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     textAlign: 'center',
     fontSize: wp(5),
   },

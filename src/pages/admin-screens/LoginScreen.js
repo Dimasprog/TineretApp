@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text, StyleSheet, TextInput, TouchableOpacity, Keyboard, StatusBar, AppState} from 'react-native';
+import {Text, StyleSheet, TextInput, TouchableOpacity, Keyboard, StatusBar, AppState, Platform} from 'react-native';
 import Modal from 'react-native-modal';
 import LinearGradient from 'react-native-linear-gradient';
 import {border, fonts, admins} from '../../../constants';
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     color: colors.second_font,
     borderRadius: border.radius,
     marginBottom: border.lateral_span,
-    // fontFamily: fonts.xthin,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.xthin,
     paddingLeft: border.lateral_span,
     fontSize: wp(6),
     elevation: 5,
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   accessButton: {
     backgroundColor: colors.main,
     borderRadius: border.radius,
-    // fontFamily: fonts.rounded,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     padding: border.lateral_span / 1.3,
     paddingHorizontal: border.lateral_span,
     alignSelf: 'center',
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   },
   accessButtonText: {
     color: colors.main_font,
-    // fontFamily: fonts.rounded,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     fontSize: wp(7),
   },
 });

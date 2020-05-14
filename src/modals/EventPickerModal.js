@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Platform} from 'react-native';
 import {border, eventTypes, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
 import {
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   modalButtonText: {
     color: colors.second_font,
-    // fontFamily: fonts.rounded,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
     textAlign: 'center',
     fontSize: hp(3),
   },

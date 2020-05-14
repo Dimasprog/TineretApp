@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
 import ModalButton from '../components/ModalButton';
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   modalTextContent: {
     color: colors.main_font,
-    // fontFamily: fonts.xthin,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.xthin,
     textAlign: 'center',
     fontSize: hp(2.5),
   },

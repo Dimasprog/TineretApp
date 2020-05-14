@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, TextInput, StatusBar, View, AppState, Keyboard} from 'react-native';
+import {StyleSheet, TextInput, StatusBar, View, AppState, Keyboard, Platform} from 'react-native';
 import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
 import LinearGradient from 'react-native-linear-gradient';
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.main,
     borderRadius: border.radius,
     color: colors.main_font,
-    // fontFamily: fonts.thin,
+    fontFamily: Platform.OS === 'ios' ? null : fonts.thin,
     textAlignVertical: 'top',
     height: '50%',
     marginTop: border.lateral_span,
