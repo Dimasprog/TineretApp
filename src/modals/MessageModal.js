@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Platform, StyleSheet, TextInput, View} from 'react-native';
-import {border, fonts} from '../../constants';
+import {border, fonts, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import ModalButton from '../components/ModalButton';
 import * as NetInfo from '@react-native-community/netinfo';
@@ -65,16 +65,16 @@ const styles = StyleSheet.create({
     width: wp(80),
     padding: 10,
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   textInput: {
     color: colors.main_font,
     minHeight: hp(30),
     maxHeight: hp(45),
-    fontFamily: Platform.OS === 'ios' ? null : fonts.thin,
+    fontFamily: Platform.OS === 'ios' ? fonts.cronus : fonts.thin,
     textAlignVertical: 'top',
     fontSize: wp(4),
   },

@@ -1,6 +1,6 @@
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {border, fonts} from '../../constants';
+import {border, fonts, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import {
   heightPercentageToDP as hp,
@@ -61,10 +61,10 @@ const styles = StyleSheet.create({
     marginHorizontal: border.lateral_span,
     marginVertical: border.lateral_span / 2,
     elevation: 10,
-    shadowColor: colors.shadow_color,
-    shadowOffset: {width: 0, height: 5},
-    shadowOpacity: 1,
-    shadowRadius: 5,
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   topContainer: {
     display: 'flex',
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     fontSize: wp(4),
   },
   typeStyle: {
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
+    fontFamily: fonts.rounded,
     color: colors.second_font,
     fontSize: wp(4),
   },

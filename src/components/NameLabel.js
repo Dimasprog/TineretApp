@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {border, fonts} from '../../constants';
+import {border, fonts, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
@@ -65,14 +65,14 @@ const styles = StyleSheet.create({
     paddingVertical: 7.5,
     paddingHorizontal: border.lateral_span,
     elevation: 10,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   textInputStyle: {
     color: colors.main_font,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rocko,
+    fontFamily: fonts.rocko,
     padding: 0,
     width: wp(68) - border.lateral_span,
     fontSize: wp(5.2),
@@ -82,14 +82,14 @@ const styles = StyleSheet.create({
     borderRadius: border.radius,
     alignSelf: 'center',
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   buttonText: {
     color: colors.second_font,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
+    fontFamily: fonts.rounded,
     textAlign: 'center',
     padding: wp(0.5),
     paddingLeft: wp(2),

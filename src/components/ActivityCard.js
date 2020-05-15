@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Image, TouchableOpacity} from 'react-native';
-import {border} from '../../constants';
+import {border, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 
 function ActivityCard({picture, onPress}) {
@@ -23,10 +23,10 @@ const activityStyles = StyleSheet.create({
     height: '21%',
     marginBottom: border.lateral_span,
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   activityImage: {
     flex: 1,

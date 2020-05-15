@@ -1,6 +1,6 @@
 import {Platform, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {border, fonts} from '../../constants';
+import {border, fonts, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
@@ -23,14 +23,14 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     justifyContent: 'center',
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   buttonText: {
     color: colors.main_font,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
+    fontFamily: fonts.rounded,
     textAlign: 'center',
     padding: border.lateral_span * 2,
     paddingBottom: 7,

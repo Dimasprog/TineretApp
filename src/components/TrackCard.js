@@ -30,21 +30,19 @@ function TrackCard({song, lyrics, navigation}) {
         return {fontName: 'CMGSans-BoldRounded', fontSize: wp(6)};
       }
     }
-    return {fontName: 'Rocko', fontSize: wp(6.5)};
+    return {fontName: 'CMGSans-BoldRounded', fontSize: wp(6.5)};
   }
 
   const headerTitleStyle = {
     color: colors.main_font,
-    fontFamily:
-      Platform.OS === 'ios' ? null : setTrackProperties(song).fontName,
+    fontFamily: setTrackProperties(song).fontName,
     fontSize: setTrackProperties(song).fontSize,
     alignSelf: 'center',
   };
 
   const titleCardStyle = {
     color: colors.main_font,
-    fontFamily:
-      Platform.OS === 'ios' ? null : setTrackProperties(song).fontName,
+    fontFamily: setTrackProperties(song).fontName,
     fontSize: setTrackProperties(song).fontSize,
     paddingHorizontal: border.lateral_span,
     paddingVertical: border.top_span,
@@ -52,8 +50,7 @@ function TrackCard({song, lyrics, navigation}) {
 
   const lyricsStyle = {
     color: colors.second_font,
-    fontFamily:
-      Platform.OS === 'ios' ? null : setTrackProperties(song).fontName,
+    fontFamily: setTrackProperties(song).fontName,
     fontSize: setTrackProperties(song).fontSize + 1,
     marginTop: border.lateral_span,
     marginBottom: border.lateral_span * 2,
@@ -98,10 +95,6 @@ const activityStyles = StyleSheet.create({
     elevation: 10,
   },
   iosElevation: {
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
   },
 });
 

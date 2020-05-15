@@ -2,6 +2,7 @@ import * as fs from 'react-native-fs';
 import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import {colors} from "./src/ColorSchemes";
 
 export const playList = {
   url: 'https://tineretapp.firebaseio.com/playlist.json',
@@ -17,7 +18,7 @@ export const feedBack = {
   api_url: 'https://tineretapp.firebaseio.com/feedback/',
 };
 
-  export const eventTypes = [
+export const eventTypes = [
   'Tineret',
   'Tineret în Oraș',
   'Grup de Creștere',
@@ -74,3 +75,14 @@ export const border = {
   lateral_span: 10,
   top_span: 15,
 };
+
+export const shadow = {
+  color: colors.shadow_color,
+  opacity: 1,
+  radius: 5,
+  offset: {
+    width: 0,
+    height: 5
+  },
+  height: 5
+}

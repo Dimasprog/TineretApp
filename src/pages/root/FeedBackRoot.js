@@ -22,7 +22,7 @@ function FeedBackRoot() {
     },
     labelStyle: {
       fontSize: wp(6),
-      fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
+      fontFamily: fonts.rounded,
     },
   };
 

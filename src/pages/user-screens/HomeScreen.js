@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     marginBottom: border.top_span,
   },
   headerTitle: {
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
+    fontFamily: fonts.rounded,
     color: 'white',
     textAlign: 'center',
     fontSize: wp(6),
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   },
   copyRightText: {
     color: colors.copy_right,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.thin,
+    fontFamily: Platform.OS === 'ios' ? undefined : fonts.thin,
     position: 'absolute',
     textAlign: 'center',
     alignSelf: 'center',

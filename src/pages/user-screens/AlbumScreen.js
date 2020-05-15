@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import Modal from 'react-native-modal';
-import {border, fonts, playList} from '../../../constants';
+import {border, fonts, playList, shadow} from '../../../constants';
 import {colors} from '../../ColorSchemes';
 import TrackCard from '../../components/TrackCard';
 import * as fs from 'react-native-fs';
@@ -124,7 +124,7 @@ function AlbumScreen({navigation}) {
     displayTrackList();
     BackHandler.addEventListener('hardwareBackPress', onBackPressed);
     AppState.addEventListener('change', () => Keyboard.dismiss());
-  }, [displayTrackList, onBackPressed]);
+  }, []);
 
   const {
     headerContainer,
@@ -246,15 +246,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: border.lateral_span / 2 - 1,
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 2},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   searchInput: {
     backgroundColor: colors.search_bar.background,
     color: colors.search_bar.color,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.medium,
+    fontFamily: fonts.medium,
     borderRadius: border.radius,
     width: wp(76),
     paddingLeft: wp(2.5),
@@ -266,13 +266,10 @@ const styles = StyleSheet.create({
     padding: 1,
   },
   backButtonText: {
-    color: colors.main_font,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
-    fontSize: wp(6),
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 2,
-    shadowOffset: {width: 0, height: 2},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius - 3,
+    shadowOffset: { width: 0, height: shadow.height - 3 },
   },
 });
 

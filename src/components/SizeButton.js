@@ -1,6 +1,6 @@
 import {Platform, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {border, fonts} from '../../constants';
+import {border, fonts, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
@@ -22,14 +22,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: border.lateral_span,
     paddingVertical: border.lateral_span / 2,
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 3,
-    shadowOffset: {width: 0, height: 3},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius - 2,
+    shadowOffset: { width: 0, height: shadow.height - 2 },
   },
   sizeButtonText: {
     color: colors.main_font,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
+    fontFamily: fonts.rounded,
     textAlign: 'center',
     fontSize: wp(5),
   },

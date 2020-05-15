@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {colors} from '../../ColorSchemes';
-import {border, fonts} from '../../../constants';
+import {border, fonts, shadow} from '../../../constants';
 import Header from '../../components/Header';
 import AppInfoModal from '../../modals/AppInfoModal';
 import Modal from 'react-native-modal';
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
   settingText: {
     fontSize: wp(5),
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
+    fontFamily: fonts.rounded,
     color: colors.second_font,
   },
   rowContainer: {
@@ -111,10 +111,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     elevation: 10,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   buttonsSizeContainer: {
     display: 'flex',

@@ -8,7 +8,7 @@ import {
   Keyboard,
   Platform,
 } from 'react-native';
-import {border, fonts} from '../../constants';
+import {border, fonts, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import LinearGradient from 'react-native-linear-gradient';
 import Header from './Header';
@@ -101,17 +101,17 @@ const styles = StyleSheet.create({
     backgroundColor: colors.main,
     borderRadius: border.radius,
     color: colors.main_font,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.thin,
+    fontFamily: Platform.OS === 'ios' ? fonts.medium : fonts.thin,
     textAlignVertical: 'top',
     height: '50%',
     marginTop: border.lateral_span,
     padding: border.lateral_span * 2,
-    fontSize: wp(5),
+    fontSize: wp(4.2),
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
 });
 

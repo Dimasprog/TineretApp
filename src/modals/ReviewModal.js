@@ -1,6 +1,6 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import {border, fonts} from '../../constants';
+import {border, fonts, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import ModalButton from '../components/ModalButton';
 import {
@@ -30,10 +30,10 @@ const styles = StyleSheet.create({
     width: wp(70),
     padding: 10,
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOffset: {width: 0, height: 5},
-    shadowOpacity: 1,
-    shadowRadius: 5,
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   modalTextContent: {
     color: colors.main_font,

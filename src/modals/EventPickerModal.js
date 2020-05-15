@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, Platform} from 'react-native';
-import {border, eventTypes, fonts} from '../../constants';
+import {border, eventTypes, fonts, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import {
   widthPercentageToDP as wp,
@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
     width: wp(60),
     padding: border.lateral_span,
     elevation: 30,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 30,
-    shadowOffset: {width: 0, height: 30},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius * 6,
+    shadowOffset: { width: 0, height: shadow.height * 6 },
   },
   modalButton: {
     backgroundColor: colors.background,
@@ -45,14 +45,14 @@ const styles = StyleSheet.create({
     marginTop: border.lateral_span / 2,
     padding: wp(1),
     elevation: 10,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   modalButtonText: {
     color: colors.second_font,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
+    fontFamily: fonts.rounded,
     textAlign: 'center',
     fontSize: hp(3),
   },

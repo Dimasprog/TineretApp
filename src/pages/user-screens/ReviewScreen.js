@@ -10,7 +10,7 @@ import {
   View,
 } from 'react-native';
 import Modal from 'react-native-modal';
-import {border, fonts, ratingCards} from '../../../constants';
+import {border, fonts, ratingCards, shadow} from '../../../constants';
 import {colors} from '../../ColorSchemes';
 import RatingCard from '../../components/RatingCard';
 import EventPickerModal from '../../modals/EventPickerModal';
@@ -39,7 +39,6 @@ function ReviewScreen({navigation}) {
   };
 
   function handleUserName(name) {
-    console.log('called', name);
     setUserName(name);
   }
 
@@ -201,14 +200,14 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     padding: border.lateral_span,
     elevation: 10,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   pickerTitle: {
     color: colors.main_font,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
+    fontFamily: fonts.rounded,
     textAlign: 'center',
     fontSize: wp(4.5),
   },
@@ -216,14 +215,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     borderRadius: border.radius,
     alignSelf: 'center',
-    elevation: 5,
-    shadowOpacity: 1,
-    shadowRadius: 3,
-    shadowOffset: {width: 0, height: 2},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius - 2,
+    shadowOffset: { width: 0, height: shadow.height - 2 },
   },
   pickerButtonText: {
     color: colors.second_font,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
+    fontFamily: fonts.rounded,
     textAlign: 'center',
     padding: wp(0.5),
     paddingLeft: wp(2),
@@ -238,10 +237,10 @@ const styles = StyleSheet.create({
     padding: border.lateral_span,
     marginBottom: -border.lateral_span,
     elevation: 15,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 10,
-    shadowOffset: {width: 0, height: 10},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius * 2,
+    shadowOffset: { width: 0, height: shadow.height - 2 },
   },
   bottomRowContainer: {
     display: 'flex',

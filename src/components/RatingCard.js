@@ -7,7 +7,7 @@ import {
   AppState,
   Platform,
 } from 'react-native';
-import {fonts, border, text} from '../../constants';
+import {fonts, border, text, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import StarRating from 'react-native-star-rating';
 import ReviewModal from '../modals/ReviewModal';
@@ -127,10 +127,10 @@ const styles = StyleSheet.create({
     marginVertical: border.lateral_span / 5,
     justifyContent: 'space-evenly',
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   titleContainer: {
     display: 'flex',
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: colors.reviewCardTitle,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
+    fontFamily: fonts.rounded,
     fontSize: wp(5),
     marginLeft: border.lateral_span * 2,
   },

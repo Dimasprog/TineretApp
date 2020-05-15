@@ -11,9 +11,9 @@ import {
 } from 'react-native';
 import Modal from 'react-native-modal';
 import LinearGradient from 'react-native-linear-gradient';
-import {border, fonts, admins} from '../../../constants';
+import {border, fonts, admins, shadow} from '../../../constants';
 import {colors} from '../../ColorSchemes';
-import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import ListModel from '../../models/ListModel';
 import NoConnectionModal from '../../modals/NoConnectionModal';
 import SimpleToast from 'react-native-simple-toast';
@@ -177,41 +177,42 @@ const styles = StyleSheet.create({
     padding: border.lateral_span,
     marginTop: wp(30),
     elevation: 10,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 10,
-    shadowOffset: {width: 0, height: 10},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius * 2,
+    shadowOffset: { width: 0, height: shadow.height * 2 },
   },
   loginInput: {
     backgroundColor: colors.background,
     color: colors.second_font,
     borderRadius: border.radius,
+    paddingVertical: Platform.OS === 'ios' ? hp(1.8) : undefined,
     marginBottom: border.lateral_span,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.xthin,
+    fontFamily: Platform.OS === 'ios' ? fonts.medium : fonts.xthin,
     paddingLeft: border.lateral_span,
-    fontSize: wp(6),
+    fontSize:  wp(6),
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   accessButton: {
     backgroundColor: colors.main,
     borderRadius: border.radius,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
+    fontFamily: fonts.rounded,
     padding: border.lateral_span / 1.3,
     paddingHorizontal: border.lateral_span,
     alignSelf: 'center',
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   accessButtonText: {
     color: colors.main_font,
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rounded,
+    fontFamily: fonts.rounded,
     fontSize: wp(7),
   },
 });
