@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, Platform} from 'react-native';
 import {border, eventTypes, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
@@ -8,20 +8,19 @@ import {
 } from 'react-native-responsive-screen';
 
 function EventPickerModal(props) {
-
   const {modalContainer, modalButton, modalButtonText} = styles;
 
   return (
     <View style={modalContainer}>
-      {eventTypes.map((event, i) =>
+      {eventTypes.map((event, i) => (
         <TouchableOpacity
           style={modalButton}
-          activeOpacity={.5}
+          activeOpacity={0.5}
           key={i}
           onPress={() => props.setEventType(event)}>
           <Text style={modalButtonText}>{event}</Text>
         </TouchableOpacity>
-      )}
+      ))}
     </View>
   );
 }
@@ -38,7 +37,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow_color,
     shadowOpacity: 1,
     shadowRadius: 30,
-    shadowOffset: {width: 0, height: 30}
+    shadowOffset: {width: 0, height: 30},
   },
   modalButton: {
     backgroundColor: colors.background,
@@ -49,7 +48,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow_color,
     shadowOpacity: 1,
     shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5}
+    shadowOffset: {width: 0, height: 5},
   },
   modalButtonText: {
     color: colors.second_font,

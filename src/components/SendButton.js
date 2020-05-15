@@ -2,14 +2,17 @@ import {Platform, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
-import {heightPercentageToDP as hp} from "react-native-responsive-screen";
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 function SendButton(props) {
   return (
-    <TouchableOpacity style={styles.buttonContainer} activeOpacity={.6} onPress={() => props.pressEvent()}>
+    <TouchableOpacity
+      style={styles.buttonContainer}
+      activeOpacity={0.6}
+      onPress={() => props.pressEvent()}>
       <Text style={styles.buttonText}>{props.title}</Text>
     </TouchableOpacity>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -23,7 +26,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow_color,
     shadowOpacity: 1,
     shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5}
+    shadowOffset: {width: 0, height: 5},
   },
   buttonText: {
     color: colors.main_font,

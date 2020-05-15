@@ -7,7 +7,7 @@ import * as NetInfo from '@react-native-community/netinfo';
 import SimpleToast from 'react-native-simple-toast';
 import {
   heightPercentageToDP as hp,
-  widthPercentageToDP as wp
+  widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 
 function MessageModal(props) {
@@ -18,15 +18,24 @@ function MessageModal(props) {
 
     NetInfo.fetch().then(state => {
       if (message) {
-        if (!state.isConnected)
-          SimpleToast.showWithGravity('Conectează internetul pentru a salva mesajul!', SimpleToast.LONG, SimpleToast.TOP);
-        else {
+        if (!state.isConnected) {
+          SimpleToast.showWithGravity(
+            'Conectează internetul pentru a salva mesajul!',
+            SimpleToast.LONG,
+            SimpleToast.TOP,
+          );
+        } else {
           props.onSave(message);
-          SimpleToast.showWithGravity('Salvat!', SimpleToast.SHORT, SimpleToast.CENTER);
+          SimpleToast.showWithGravity(
+            'Salvat!',
+            SimpleToast.SHORT,
+            SimpleToast.CENTER,
+          );
           props.modalVisible(false);
         }
-      } else
-        props.modalVisible(false)
+      } else {
+        props.modalVisible(false);
+      }
     });
   }
 
@@ -42,9 +51,9 @@ function MessageModal(props) {
         value={textInputData}
         onChangeText={textInputData => setTextInputData({textInputData})}
       />
-      <ModalButton title={'Salvează'} onPress={() => onSaveMessage()}/>
+      <ModalButton title={'Salvează'} onPress={() => onSaveMessage()} />
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -59,7 +68,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow_color,
     shadowOpacity: 1,
     shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5}
+    shadowOffset: {width: 0, height: 5},
   },
   textInput: {
     color: colors.main_font,

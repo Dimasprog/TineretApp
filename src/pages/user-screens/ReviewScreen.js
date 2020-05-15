@@ -1,5 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {AppState, Keyboard, Platform, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  AppState,
+  Keyboard,
+  Platform,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import Modal from 'react-native-modal';
 import {border, fonts, ratingCards} from '../../../constants';
 import {colors} from '../../ColorSchemes';
@@ -45,10 +54,18 @@ function ReviewScreen({navigation}) {
   }
 
   function handleStarRating(key, value) {
-    if (key === 'Estetică') rating.aesthetic = value;
-    if (key === 'Învățămînt') rating.learning = value;
-    if (key === 'Sustragere de la realitate') rating.reality = value;
-    if (key === 'Distracție') rating.distraction = value;
+    if (key === 'Estetică') {
+      rating.aesthetic = value;
+    }
+    if (key === 'Învățămînt') {
+      rating.learning = value;
+    }
+    if (key === 'Sustragere de la realitate') {
+      rating.reality = value;
+    }
+    if (key === 'Distracție') {
+      rating.distraction = value;
+    }
   }
 
   function resetStarRating() {
@@ -68,7 +85,11 @@ function ReviewScreen({navigation}) {
 
   function sendReview() {
     let body = getReviewMessage();
-    let postRequest = new PostRequest(navigation.goBack, activityObject, resetStarRating);
+    let postRequest = new PostRequest(
+      navigation.goBack,
+      activityObject,
+      resetStarRating,
+    );
     postRequest.sendReviewEntity(body);
   }
 
@@ -78,11 +99,11 @@ function ReviewScreen({navigation}) {
   }
 
   useEffect(() => {
-    AppState.addEventListener('change', onPowerButtonPressed)
+    AppState.addEventListener('change', onPowerButtonPressed);
     return () => {
-      AppState.removeEventListener('change', onPowerButtonPressed)
-    }
-  }, [])
+      AppState.removeEventListener('change', onPowerButtonPressed);
+    };
+  }, []);
 
   const {
     ratingContainer,
@@ -97,17 +118,24 @@ function ReviewScreen({navigation}) {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: colors.background}}>
       <View style={mainContainer}>
-      <StatusBar barStyle={colors.status_bar.font_color} backgroundColor={colors.status_bar.background}/>
-        <Header themeColor={colors.second_font} title={activityObject.titleName} pressEvent={() => navigation.goBack()}/>
+        <StatusBar
+          barStyle={colors.status_bar.font_color}
+          backgroundColor={colors.status_bar.background}
+        />
+        <Header
+          themeColor={colors.second_font}
+          title={activityObject.titleName}
+          pressEvent={() => navigation.goBack()}
+        />
 
-        <NameLabel onFinalizedEdit={handleUserName}/>
+        <NameLabel onFinalizedEdit={handleUserName} />
 
         <View style={pickerContainer}>
           <Text style={pickerTitle}>Evenimentul:</Text>
 
           <TouchableOpacity
             style={pickerButton}
-            activeOpacity={.6}
+            activeOpacity={0.6}
             onPress={() => setEventModalVisible(true)}>
             <Text style={pickerButtonText}>{eventType}</Text>
           </TouchableOpacity>
@@ -118,35 +146,40 @@ function ReviewScreen({navigation}) {
             onBackdropPress={() => setEventModalVisible(false)}
             onBackButtonPress={() => setEventModalVisible(false)}
             visible={isEventModalVisible}>
-            <EventPickerModal setEventType={handleEventType}/>
+            <EventPickerModal setEventType={handleEventType} />
           </Modal>
         </View>
 
         <View style={ratingContainer}>
-          {ratingCards.map((card, i) =>
-            <RatingCard sendStarRating={handleStarRating}
-                        key={i}
-                        title={card}/>,
-          )}
+          {ratingCards.map((card, i) => (
+            <RatingCard
+              sendStarRating={handleStarRating}
+              key={i}
+              title={card}
+            />
+          ))}
         </View>
 
         <View style={bottomRowContainer}>
-          <SendButton title={' Mesaj '} pressEvent={() => handleReviewMessage()}/>
-          <SendButton title={'Trimite'} pressEvent={() => sendReview()}/>
+          <SendButton
+            title={' Mesaj '}
+            pressEvent={() => handleReviewMessage()}
+          />
+          <SendButton title={'Trimite'} pressEvent={() => sendReview()} />
         </View>
 
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={isMessageModalVisible}
-        onBackButtonPress={() => setMessageModalVisible(false)}
-        onBackdropPress={() => setMessageModalVisible(false)}>
-        <MessageModal
-          modalVisible={setMessageModalVisible}
-          onSave={handleReviewMessage}
-        />
-      </Modal>
-    </View>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={isMessageModalVisible}
+          onBackButtonPress={() => setMessageModalVisible(false)}
+          onBackdropPress={() => setMessageModalVisible(false)}>
+          <MessageModal
+            modalVisible={setMessageModalVisible}
+            onSave={handleReviewMessage}
+          />
+        </Modal>
+      </View>
     </SafeAreaView>
   );
 }
@@ -171,7 +204,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow_color,
     shadowOpacity: 1,
     shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5}
+    shadowOffset: {width: 0, height: 5},
   },
   pickerTitle: {
     color: colors.main_font,
@@ -186,7 +219,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     shadowOpacity: 1,
     shadowRadius: 3,
-    shadowOffset: {width: 0, height: 2}
+    shadowOffset: {width: 0, height: 2},
   },
   pickerButtonText: {
     color: colors.second_font,
@@ -208,7 +241,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow_color,
     shadowOpacity: 1,
     shadowRadius: 10,
-    shadowOffset: {width: 0, height: 10}
+    shadowOffset: {width: 0, height: 10},
   },
   bottomRowContainer: {
     display: 'flex',

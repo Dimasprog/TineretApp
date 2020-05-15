@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, Text, TouchableOpacity, AppState, Platform} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  AppState,
+  Platform,
+} from 'react-native';
 import {fonts, border, text} from '../../constants';
 import {colors} from '../ColorSchemes';
 import StarRating from 'react-native-star-rating';
@@ -19,7 +26,7 @@ function RatingCard(props) {
 
   function onChangeRating(rating) {
     props.sendStarRating(props.title, rating);
-    setStarCount(rating)
+    setStarCount(rating);
   }
 
   function onInfoPress(content) {
@@ -52,39 +59,38 @@ function RatingCard(props) {
     titleText,
     infoButton,
     starRating,
-    starStyle,
   } = styles;
 
   const gradient = {
-    color: [
-      colors.main,
-      colors.alternative,
-    ],
+    color: [colors.main, colors.alternative],
     start: {
       x: 0,
       y: 1,
     },
     end: {
       x: 1,
-      y: 1
+      y: 1,
     },
   };
 
   useEffect(() => {
     AppState.addEventListener('change', () => {
       setModalVisible(false);
-    })
-  }, [])
+    });
+  }, []);
 
   return (
-    <LinearGradient style={mainContainer} colors={gradient.color} start={gradient.start} end={gradient.end}>
-
+    <LinearGradient
+      style={mainContainer}
+      colors={gradient.color}
+      start={gradient.start}
+      end={gradient.end}>
       <View style={titleContainer}>
-        <Text style={titleText}>
-          {props.title}
-        </Text>
-        <TouchableOpacity style={infoButton} onPress={() => onInfoPress(props.title)}>
-          <Icon name={'info'} color={colors.main} size={wp(6)}/>
+        <Text style={titleText}>{props.title}</Text>
+        <TouchableOpacity
+          style={infoButton}
+          onPress={() => onInfoPress(props.title)}>
+          <Icon name={'info'} color={colors.main} size={wp(6)} />
         </TouchableOpacity>
       </View>
 
@@ -124,7 +130,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow_color,
     shadowOpacity: 1,
     shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5}
+    shadowOffset: {width: 0, height: 5},
   },
   titleContainer: {
     display: 'flex',

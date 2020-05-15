@@ -3,7 +3,8 @@ import {
   AppState,
   BackHandler,
   FlatList,
-  Keyboard, Platform,
+  Keyboard,
+  Platform,
   RefreshControl,
   SafeAreaView,
   StatusBar,
@@ -123,7 +124,7 @@ function AlbumScreen({navigation}) {
     displayTrackList();
     BackHandler.addEventListener('hardwareBackPress', onBackPressed);
     AppState.addEventListener('change', () => Keyboard.dismiss());
-  }, []);
+  }, [displayTrackList, onBackPressed]);
 
   const {
     headerContainer,
@@ -248,7 +249,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow_color,
     shadowOpacity: 1,
     shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowOffset: {width: 0, height: 2},
   },
   searchInput: {
     backgroundColor: colors.search_bar.background,

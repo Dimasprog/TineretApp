@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {border} from '../../constants';
 import {colors} from '../ColorSchemes';
 
@@ -7,10 +7,13 @@ function ActivityCard({picture, onPress}) {
   const {mainContainer, activityImage} = activityStyles;
 
   return (
-    <TouchableOpacity style={mainContainer} onPress={onPress} activeOpacity={.6}>
-      <Image style={activityImage} source={picture}/>
+    <TouchableOpacity
+      style={mainContainer}
+      onPress={onPress}
+      activeOpacity={0.6}>
+      <Image style={activityImage} source={picture} />
     </TouchableOpacity>
-  )
+  );
 }
 
 const activityStyles = StyleSheet.create({

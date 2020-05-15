@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import {Platform, StatusBar, StyleSheet, Switch, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Platform,
+  StatusBar,
+  StyleSheet,
+  Switch,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {colors} from '../../ColorSchemes';
 import {border, fonts} from '../../../constants';
@@ -7,10 +15,8 @@ import Header from '../../components/Header';
 import AppInfoModal from '../../modals/AppInfoModal';
 import Modal from 'react-native-modal';
 import SizeButton from '../../components/SizeButton';
-import {
-  widthPercentageToDP as wp
-} from 'react-native-responsive-screen';
-import {SafeAreaProvider, SafeAreaView} from "react-native-safe-area-context";
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 
 function SettingsScreen({navigation}) {
   const [isDarkMode, setDarkMode] = useState(false);
@@ -20,54 +26,68 @@ function SettingsScreen({navigation}) {
     setDarkMode(prevState => !prevState);
   }
 
-  const {mainContainer, settingText, rowContainer, buttonsSizeContainer} = styles;
+  const {
+    mainContainer,
+    settingText,
+    rowContainer,
+    buttonsSizeContainer,
+  } = styles;
 
   return (
-
-    <LinearGradient style={mainContainer} colors={[colors.main, colors.background]}>
-      <StatusBar backgroundColor={colors.status_bar.main}/>
-      <SafeAreaProvider><SafeAreaView>
-        <View style={{marginBottom: border.lateral_span / 2}}>
-          <Header themeColor={colors.main_font} title={'Setări'} pressEvent={() => navigation.goBack()}/>
-        </View>
-
-        <View style={rowContainer}>
-          <Text style={settingText}>{'Mod noapte'}</Text>
-          <Switch
-            trackColor={{ false: "#767577", true: colors.main }}
-            thumbColor={isDarkMode ? colors.background : "#f4f3f4"}
-            onValueChange={toggleDarkModeSwitch}
-            value={isDarkMode}
-          />
-        </View>
-
-        <View style={rowContainer}>
-          <Text style={settingText}>Dimensiune text</Text>
-
-          <View style={buttonsSizeContainer}>
-            <SizeButton title={'Mic'} onPress={() => alert('Mic')}/>
-            <View style={{marginHorizontal: border.lateral_span}}>
-              <SizeButton title={'Mediu'} onPress={() => alert('Mediu')}/>
-            </View>
-            <SizeButton title={'Mare'} onPress={() => alert('Mare')}/>
+    <LinearGradient
+      style={mainContainer}
+      colors={[colors.main, colors.background]}>
+      <StatusBar backgroundColor={colors.status_bar.main} />
+      <SafeAreaProvider>
+        <SafeAreaView>
+          <View style={{marginBottom: border.lateral_span / 2}}>
+            <Header
+              themeColor={colors.main_font}
+              title={'Setări'}
+              pressEvent={() => navigation.goBack()}
+            />
           </View>
-        </View>
 
-        <TouchableOpacity style={rowContainer} onPress={() => setInfoModalVisible(true)}>
-          <Text style={settingText}>{'App info'}</Text>
-        </TouchableOpacity>
+          <View style={rowContainer}>
+            <Text style={settingText}>{'Mod noapte'}</Text>
+            <Switch
+              trackColor={{false: '#767577', true: colors.main}}
+              thumbColor={isDarkMode ? colors.background : '#f4f3f4'}
+              onValueChange={toggleDarkModeSwitch}
+              value={isDarkMode}
+            />
+          </View>
 
-        <Modal
-          animationType="slide"
-          transparent={true}
-          onBackdropPress={() => setInfoModalVisible(false)}
-          onBackButtonPress={() => setInfoModalVisible(false)}
-          visible={isInfoModalVisible}>
-          <AppInfoModal changeModalVisibility={setInfoModalVisible}/>
-        </Modal>
-      </SafeAreaView></SafeAreaProvider>
+          <View style={rowContainer}>
+            <Text style={settingText}>Dimensiune text</Text>
+
+            <View style={buttonsSizeContainer}>
+              <SizeButton title={'Mic'} onPress={() => alert('Mic')} />
+              <View style={{marginHorizontal: border.lateral_span}}>
+                <SizeButton title={'Mediu'} onPress={() => alert('Mediu')} />
+              </View>
+              <SizeButton title={'Mare'} onPress={() => alert('Mare')} />
+            </View>
+          </View>
+
+          <TouchableOpacity
+            style={rowContainer}
+            onPress={() => setInfoModalVisible(true)}>
+            <Text style={settingText}>{'App info'}</Text>
+          </TouchableOpacity>
+
+          <Modal
+            animationType="slide"
+            transparent={true}
+            onBackdropPress={() => setInfoModalVisible(false)}
+            onBackButtonPress={() => setInfoModalVisible(false)}
+            visible={isInfoModalVisible}>
+            <AppInfoModal changeModalVisibility={setInfoModalVisible} />
+          </Modal>
+        </SafeAreaView>
+      </SafeAreaProvider>
     </LinearGradient>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -94,7 +114,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow_color,
     shadowOpacity: 1,
     shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5}
+    shadowOffset: {width: 0, height: 5},
   },
   buttonsSizeContainer: {
     display: 'flex',

@@ -8,12 +8,18 @@ import {
 } from 'react-native-responsive-screen';
 
 function FeedbackCard(props) {
-
-  const {mainContainer, topContainer, topTextStyle, typeStyle, messageStyle, ratingStyle, ratingContainer} = styles;
+  const {
+    mainContainer,
+    topContainer,
+    topTextStyle,
+    typeStyle,
+    messageStyle,
+    ratingStyle,
+    ratingContainer,
+  } = styles;
 
   return (
     <View style={mainContainer}>
-
       <View style={topContainer}>
         <Text style={topTextStyle}>{props.date}</Text>
         <Text style={topTextStyle}>{props.name}</Text>
@@ -23,21 +29,28 @@ function FeedbackCard(props) {
 
       {props.message ? <Text style={messageStyle}>{props.message}</Text> : null}
 
-      {props.rating ?
-      <View>
-        <View style={ratingContainer}>
-          <Text style={ratingStyle}>{'Estetică: ' + props.rating.aesthetic + '\t\t\t\t'}</Text>
-          <Text style={ratingStyle}>{'Învățămînt: ' + props.rating.distraction}</Text>
+      {props.rating ? (
+        <View>
+          <View style={ratingContainer}>
+            <Text style={ratingStyle}>
+              {'Estetică: ' + props.rating.aesthetic + '\t\t\t\t'}
+            </Text>
+            <Text style={ratingStyle}>
+              {'Învățămînt: ' + props.rating.distraction}
+            </Text>
+          </View>
+          <View style={ratingContainer}>
+            <Text style={ratingStyle}>
+              {'Sustragere: ' + props.rating.learning + '\t\t\t'}
+            </Text>
+            <Text style={ratingStyle}>
+              {'Distracție: ' + props.rating.reality}
+            </Text>
+          </View>
         </View>
-        <View style={ratingContainer}>
-          <Text style={ratingStyle}>{'Sustragere: ' + props.rating.learning + '\t\t\t'}</Text>
-          <Text style={ratingStyle}>{'Distracție: ' + props.rating.reality}</Text>
-        </View>
-      </View>
-        : null
-      }
+      ) : null}
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -61,7 +74,7 @@ const styles = StyleSheet.create({
   },
   topTextStyle: {
     fontFamily: fonts.medium,
-    color: Platform.OS === 'ios' ? null : colors.second_font,
+    color: colors.second_font,
     fontSize: wp(4),
   },
   typeStyle: {

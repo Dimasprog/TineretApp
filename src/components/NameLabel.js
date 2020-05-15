@@ -1,8 +1,16 @@
 import React, {useState} from 'react';
-import {Keyboard, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {
+  Keyboard,
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
-import {widthPercentageToDP as wp} from "react-native-responsive-screen";
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 function NameLabel(props) {
   const [name, setName] = useState('');
@@ -19,30 +27,31 @@ function NameLabel(props) {
 
   return (
     <View style={rowContainer}>
-      <TextInput style={textInputStyle}
-                 selectionColor={colors.alternative}
-                 placeholderTextColor={colors.main_font}
-                 keyboardAppearance={colors.keyboard_appearance}
-                 placeholder={placeHolder}
-                 value={name}
-                 onFocus={() => {
-                   setPlaceHolder('Numele...');
-                   props.onFinalizedEdit('');
-                 }}
-                 onChangeText={name => {
-                   setName({name});
-                   props.onFinalizedEdit(name);
-                 }}
+      <TextInput
+        style={textInputStyle}
+        selectionColor={colors.alternative}
+        placeholderTextColor={colors.main_font}
+        keyboardAppearance={colors.keyboard_appearance}
+        placeholder={placeHolder}
+        value={name}
+        onFocus={() => {
+          setPlaceHolder('Numele...');
+          props.onFinalizedEdit('');
+        }}
+        onChangeText={name => {
+          setName({name});
+          props.onFinalizedEdit(name);
+        }}
       />
 
       <TouchableOpacity
         style={buttonContainer}
-        activeOpacity={.6}
+        activeOpacity={0.6}
         onPress={() => onAnonimPressed()}>
         <Text style={buttonText}>{'Anonim'}</Text>
       </TouchableOpacity>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -59,7 +68,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow_color,
     shadowOpacity: 1,
     shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5}
+    shadowOffset: {width: 0, height: 5},
   },
   textInputStyle: {
     color: colors.main_font,
@@ -76,7 +85,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow_color,
     shadowOpacity: 1,
     shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5}
+    shadowOffset: {width: 0, height: 5},
   },
   buttonText: {
     color: colors.second_font,

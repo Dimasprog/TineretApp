@@ -20,24 +20,25 @@ import LoadingIndicator from './LoadingIndicator';
 let listModel = new ListModel();
 
 function FeedbackDisplay(props) {
-
   const [feedBackList, setFeedBackList] = useState([]);
   const [isRefresh, setRefresh] = useState(false);
   const [isLoading, setLoading] = useState(true);
 
-  const noDataErrorMessage = 'TypeError: Object.values requires that input parameter not be null or undefined';
+  const noDataErrorMessage =
+    'TypeError: Object.values requires that input parameter not be null or undefined';
   const {mainContainer, listContainer, headerStyle} = styles;
 
   function HeaderLabel() {
     return (
       <View>
-        <Header themeColor={colors.second_font}
-                title={props.title}
-                pressEvent={() => props.navigation.popToTop()}
+        <Header
+          themeColor={colors.second_font}
+          title={props.title}
+          pressEvent={() => props.navigation.popToTop()}
         />
-        {isLoading ? <LoadingIndicator props={isLoading}/> : null}
+        {isLoading ? <LoadingIndicator props={isLoading} /> : null}
       </View>
-    )
+    );
   }
 
   function handleBackButton() {
@@ -46,65 +47,79 @@ function FeedbackDisplay(props) {
   }
 
   function displayFeedBackList(list) {
-    listModel.getList(feedBack.url)
+    listModel
+      .getList(feedBack.url)
       .then(response => {
-        if (list === 'question')
+        if (list === 'question') {
           setFeedBackList(Object.values(response.question));
-        if (list === 'idea')
+        }
+        if (list === 'idea') {
           setFeedBackList(Object.values(response.idea));
-        if (list === 'review')
+        }
+        if (list === 'review') {
           setFeedBackList(Object.values(response.review));
+        }
       })
-      .catch((err) => {
-        if (err.toString() !== noDataErrorMessage)
-          SimpleToast.show("Nui internet!", 500);
-        else
+      .catch(err => {
+        if (err.toString() !== noDataErrorMessage) {
+          SimpleToast.show('Nui internet!', 500);
+        } else {
           SimpleToast.show('Nici un feedback!', 500);
+        }
       });
     setRefresh(false);
     setLoading(false);
   }
 
   async function refreshList() {
-      await displayFeedBackList(props.theme);
-      setRefresh(false);
+    await displayFeedBackList(props.theme);
+    setRefresh(false);
   }
 
-  useEffect( () => {
+  useEffect(() => {
     displayFeedBackList(props.theme);
     BackHandler.addEventListener('hardwareBackPress', handleBackButton);
-  }, []);
+  }, [handleBackButton, props.theme]);
 
   return (
-    <LinearGradient style={mainContainer} colors={[colors.background, colors.main]}>
-      <StatusBar barStyle={colors.status_bar.font_color} backgroundColor={colors.status_bar.background}/>
+    <LinearGradient
+      style={mainContainer}
+      colors={[colors.background, colors.main]}>
+      <StatusBar
+        barStyle={colors.status_bar.font_color}
+        backgroundColor={colors.status_bar.background}
+      />
 
       <SafeAreaView style={listContainer}>
-      <FlatList ListHeaderComponent={<HeaderLabel/>}
-                ListHeaderComponentStyle={headerStyle}
-                ListFooterComponent={<View style={{height: border.lateral_span / 2}}/>}
-                showsVerticalScrollIndicator={false}
-                data={feedBackList.reverse()}
-                keyExtractor={item => item.id}
-                refreshControl={
-                  <RefreshControl
-                    refreshing={isRefresh}
-                    colors={[colors.main]}
-                    onRefresh={() => refreshList()}
-                  />
-                }
-                renderItem={({item}) =>
-                  <FeedbackCard date={item.date}
-                                name={item.name}
-                                message={item.message}
-                                type={item.type}
-                                rating={item.rating}
-                  />
-                }
-      />
-        </SafeAreaView>
+        <FlatList
+          ListHeaderComponent={<HeaderLabel />}
+          ListHeaderComponentStyle={headerStyle}
+          ListFooterComponent={
+            <View style={{height: border.lateral_span / 2}} />
+          }
+          showsVerticalScrollIndicator={false}
+          data={feedBackList.reverse()}
+          keyExtractor={item => item.id}
+          refreshControl={
+            <RefreshControl
+              refreshing={isRefresh}
+              colors={[colors.main]}
+              onRefresh={() => refreshList()}
+            />
+          }
+          renderItem={({item}) => (
+            <FeedbackCard
+              date={item.date}
+              name={item.name}
+              message={item.message}
+              type={item.type}
+              rating={item.rating}
+            />
+          )}
+        />
+      </SafeAreaView>
     </LinearGradient>
-  )
+  );
 }
 
 const styles = StyleSheet.create({

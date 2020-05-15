@@ -14,22 +14,23 @@ export default class ListModel {
     } catch (e) {
       return [];
     }
-  };
+  }
 
   async downloadList(file) {
     await fs.downloadFile({
       fromUrl: file.url,
       toFile: file.local_path,
-    })
-  };
+    });
+  }
 
   getListLength(list) {
     let listLength = 0;
 
-    for (let i = 0; i < list.length; i++)
+    for (let i = 0; i < list.length; i++) {
       listLength += Object.values(list[i]).toString().length;
+    }
 
-    return listLength
+    return listLength;
   }
 
   isUpdatedList(oldList, newList) {
@@ -39,12 +40,12 @@ export default class ListModel {
 
       return oldLength !== newLength;
     }
-    return false
+    return false;
   }
 
   checkInternet() {
     NetInfo.fetch().then(state => {
       this.isInternet = state.isConnected;
     });
-  };
+  }
 }

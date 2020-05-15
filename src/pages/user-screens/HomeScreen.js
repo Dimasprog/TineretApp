@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   StatusBar,
   SafeAreaView,
-  Vibration, Platform,
+  Vibration,
+  Platform,
 } from 'react-native';
 import ActivityCard from '../../components/ActivityCard';
 import {images, text, border, fonts} from '../../../constants';
@@ -50,7 +51,10 @@ function HomeScreen({navigation}) {
     <LinearGradient
       colors={[colors.main, colors.background]}
       style={mainContainer}>
-      <StatusBar backgroundColor={colors.status_bar.alternative} />
+      <StatusBar
+        backgroundColor={colors.status_bar.alternative}
+        barStyle={'light-content'}
+      />
       <SafeAreaView style={{marginBottom: hp(3)}}>
         <View style={headerContainer}>
           <TouchableOpacity onLongPress={switchScreen('Login')}>
@@ -70,10 +74,19 @@ function HomeScreen({navigation}) {
         </View>
 
         <View style={activityContainer}>
-          <ActivityCard picture={images.album} onPress={switchScreen('Album')} />
-          <ActivityCard picture={images.question} onPress={switchScreen('Question')} />
+          <ActivityCard
+            picture={images.album}
+            onPress={switchScreen('Album')}
+          />
+          <ActivityCard
+            picture={images.question}
+            onPress={switchScreen('Question')}
+          />
           <ActivityCard picture={images.idea} onPress={switchScreen('Idea')} />
-          <ActivityCard picture={images.review} onPress={switchScreen('Review')} />
+          <ActivityCard
+            picture={images.review}
+            onPress={switchScreen('Review')}
+          />
         </View>
         <Text style={copyRightText}>{text.copyRight}</Text>
       </SafeAreaView>

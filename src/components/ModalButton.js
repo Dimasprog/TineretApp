@@ -2,15 +2,17 @@ import {Platform, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
-import {heightPercentageToDP as hp} from "react-native-responsive-screen";
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 function ModalButton(props) {
-
   return (
-    <TouchableOpacity style={styles.modalButton} activeOpacity={.4} onPress={props.onPress}>
+    <TouchableOpacity
+      style={styles.modalButton}
+      activeOpacity={0.4}
+      onPress={props.onPress}>
       <Text style={styles.modalButtonText}>{props.title}</Text>
     </TouchableOpacity>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -25,7 +27,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow_color,
     shadowOpacity: 1,
     shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5}
+    shadowOffset: {width: 0, height: 5},
   },
   modalButtonText: {
     color: colors.second_font,

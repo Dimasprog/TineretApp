@@ -1,21 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import {border, fonts} from '../../constants';
 import {colors} from '../ColorSchemes';
 import ModalButton from '../components/ModalButton';
 import {
   heightPercentageToDP as hp,
-  widthPercentageToDP as wp
+  widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 
-
 function ReviewModal(props) {
-
   const {modalContainer, modalTextContent} = styles;
   return (
     <View style={modalContainer}>
       <Text style={modalTextContent}>{props.infoText}</Text>
-      <ModalButton title={'Clar'} onPress={() => props.changeModalVisibility(false)}/>
+      <ModalButton
+        title={'Clar'}
+        onPress={() => props.changeModalVisibility(false)}
+      />
     </View>
   );
 }
