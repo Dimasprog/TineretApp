@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "android": "npx react-native run-android",
-    "ios": "npx react-native run-ios",
+    "td5": "npx react-native run-ios --device=\"td5\"\n",
+    "ios": "npx react-native run-ios --simulator=\"iPad Air (3rd generation)\"\n",
     "start": "npx react-native start",
     "test": "jest",
     "lint": "eslint ."
