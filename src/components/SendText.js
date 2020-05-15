@@ -6,7 +6,7 @@ import {
   View,
   AppState,
   Keyboard,
-  Platform,
+  Platform, Dimensions,
 } from 'react-native';
 import {border, fonts, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
@@ -17,6 +17,8 @@ import NameLabel from './NameLabel';
 import PostRequest from '../models/PostRequest';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+
+let isTablet = Dimensions.get("window").height / Dimensions.get("window").width < 1.6;
 
 function SendText(props) {
   const [textInputData, setTextInputData] = useState('');
@@ -103,7 +105,7 @@ const styles = StyleSheet.create({
     color: colors.main_font,
     fontFamily: Platform.OS === 'ios' ? fonts.medium : fonts.thin,
     textAlignVertical: 'top',
-    height: '50%',
+    height: isTablet ? '55%' : '45%',
     marginTop: border.lateral_span,
     padding: border.lateral_span * 2,
     fontSize: wp(4.2),

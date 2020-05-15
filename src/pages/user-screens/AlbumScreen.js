@@ -129,7 +129,7 @@ function AlbumScreen({navigation}) {
   const {
     headerContainer,
     searchButton,
-    backButtonText,
+    backButton,
     topContainer,
     searchContainer,
     searchInput,
@@ -145,7 +145,7 @@ function AlbumScreen({navigation}) {
       <View style={headerContainer}>
         <View style={topContainer}>
           <TouchableOpacity
-            style={backButtonText}
+            style={backButton}
             onPress={() => onBackPressed()}>
             <Icon
               type={'material-community'}
@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
   topContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     padding: border.lateral_span,
     paddingBottom: border.lateral_span / 2,
@@ -265,7 +265,7 @@ const styles = StyleSheet.create({
     marginRight: 3,
     padding: 1,
   },
-  backButtonText: {
+  backButton: {
     shadowColor: shadow.color,
     shadowOpacity: shadow.opacity,
     shadowRadius: shadow.radius - 1,

@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignSelf: 'center',
     width: wp(80),
+    marginBottom: Platform.OS === 'ios' ? hp(30) : null,
     padding: 10,
     elevation: 5,
     shadowColor: shadow.color,
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     maxHeight: hp(45),
     fontFamily: Platform.OS === 'ios' ? fonts.cronus : fonts.thin,
     textAlignVertical: 'top',
-    fontSize: wp(4),
+    fontSize: wp(8),
   },
 });
 
