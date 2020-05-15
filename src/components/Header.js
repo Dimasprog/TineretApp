@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
   backButton: {
     shadowColor: shadow.color,
     shadowOpacity: shadow.opacity,
-    shadowRadius: shadow.radius - 3,
-    shadowOffset: { width: 0, height: shadow.height - 3 },
+    shadowRadius: shadow.radius - 1,
+    shadowOffset: { width: 0, height: shadow.height - 1 },
   },
 });
 

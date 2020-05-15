@@ -76,13 +76,15 @@ export const border = {
   top_span: 15,
 };
 
+const shadowCoefficient = 2;
+
 export const shadow = {
   color: colors.shadow_color,
   opacity: 1,
-  radius: 5,
+  radius: shadowCoefficient + 1,
   offset: {
     width: 0,
-    height: 5
+    height: shadowCoefficient
   },
-  height: 5
+  height: shadowCoefficient
 }

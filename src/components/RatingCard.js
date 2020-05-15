@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.rounded,
     fontSize: wp(5),
     marginLeft: border.lateral_span * 2,
+    maxWidth: '86%',
   },
   starRating: {
     marginLeft: border.lateral_span * 2,

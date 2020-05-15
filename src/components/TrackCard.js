@@ -6,7 +6,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {border} from '../../constants';
+import {border, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import LinearGradient from 'react-native-linear-gradient';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
@@ -95,6 +95,10 @@ const activityStyles = StyleSheet.create({
     elevation: 10,
   },
   iosElevation: {
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: { width: 0, height: shadow.height }
   },
 });
 

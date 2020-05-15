@@ -217,8 +217,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     shadowColor: shadow.color,
     shadowOpacity: shadow.opacity,
-    shadowRadius: shadow.radius - 2,
-    shadowOffset: { width: 0, height: shadow.height - 2 },
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   pickerButtonText: {
     color: colors.second_font,
