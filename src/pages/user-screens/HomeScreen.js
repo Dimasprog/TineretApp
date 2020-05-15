@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-// import SplashScreen from 'react-native-splash-screen';
+import SplashScreen from 'react-native-splash-screen';
 import {
   StyleSheet,
   View,
@@ -16,13 +16,18 @@ import {colors} from '../../ColorSchemes';
 import Orientation from 'react-native-orientation';
 import LinearGradient from 'react-native-linear-gradient';
 import {Icon} from 'react-native-elements';
-import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
 
 function HomeScreen({navigation}) {
   useEffect(() => {
     Orientation.lockToPortrait();
-    // SplashScreen.hide();
-    return () => {Orientation.lockToPortrait()}
+    SplashScreen.hide();
+    return () => {
+      Orientation.lockToPortrait();
+    };
   }, []);
 
   function switchScreen(screen) {

@@ -13,6 +13,8 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		15C81A95507C60B484258A7F /* libPods-TineretApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EEA0826DA574D619D66849D /* libPods-TineretApp-tvOSTests.a */; };
+		1B3A106A246E13BE0076712C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		1B3A106C246E1B6C0076712C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		1BF78B6B246DC6ED005D92A3 /* CMGSans-BoldRounded.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD1919284E7042F1A413F116 /* CMGSans-BoldRounded.ttf */; };
 		1BF78B6C246DC701005D92A3 /* CMGSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA988DA82C0949978131277C /* CMGSans-SemiBoldItalic.ttf */; };
 		1BF78B6D246DC701005D92A3 /* Cronus.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F5D1B1B61584BCBB16F7C64 /* Cronus.otf */; };
@@ -413,11 +415,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BF78B6C246DC701005D92A3 /* CMGSans-SemiBoldItalic.ttf in Resources */,
+				1B3A106A246E13BE0076712C /* Images.xcassets in Resources */,
 				1BF78B6D246DC701005D92A3 /* Cronus.otf in Resources */,
 				1BF78B6E246DC701005D92A3 /* ExtraThin.ttf in Resources */,
 				1BF78B6F246DC701005D92A3 /* Nunito.ttf in Resources */,
 				1BF78B70246DC701005D92A3 /* Rocko.ttf in Resources */,
 				1BF78B71246DC701005D92A3 /* Thin.ttf in Resources */,
+				1B3A106C246E1B6C0076712C /* LaunchScreen.xib in Resources */,
 				1BF78B6B246DC6ED005D92A3 /* CMGSans-BoldRounded.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
