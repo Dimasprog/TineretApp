@@ -8,6 +8,7 @@ import {
 } from 'react-native-responsive-screen';
 
 function FeedbackCard(props) {
+  const tabs = Platform.OS === 'ios' ? '\t\t\t\t' : '\t\t\t\t\t';
   const {
     mainContainer,
     topContainer,
@@ -33,7 +34,7 @@ function FeedbackCard(props) {
         <View>
           <View style={ratingContainer}>
             <Text style={ratingStyle}>
-              {'Estetică: ' + props.rating.aesthetic + '\t\t\t\t'}
+              {'Estetică: ' + props.rating.aesthetic + tabs}
             </Text>
             <Text style={ratingStyle}>
               {'Învățămînt: ' + props.rating.distraction}
