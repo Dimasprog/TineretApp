@@ -97,8 +97,8 @@ function HomeScreen({navigation}) {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: colors.background,
     paddingVertical: border.top_span,
+    paddingTop: Platform.OS === 'ios' ? border.top_span * 2 : null,
     paddingHorizontal: border.lateral_span,
   },
   headerContainer: {
