@@ -135,7 +135,10 @@ function ReviewScreen({navigation}) {
           <TouchableOpacity
             style={pickerButton}
             activeOpacity={0.6}
-            onPress={() => setEventModalVisible(true)}>
+            onPress={() => {
+              Keyboard.dismiss();
+              setEventModalVisible(true);
+            }}>
             <Text style={pickerButtonText}>{eventType}</Text>
           </TouchableOpacity>
 
