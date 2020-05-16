@@ -75,9 +75,9 @@ const styles = StyleSheet.create({
     color: colors.main_font,
     minHeight: hp(30),
     maxHeight: hp(45),
-    fontFamily: Platform.OS === 'ios' ? fonts.cronus : fonts.thin,
+    fontFamily: fonts.xthin,
     textAlignVertical: 'top',
-    fontSize: wp(8),
+    fontSize: wp(5),
   },
 });
 

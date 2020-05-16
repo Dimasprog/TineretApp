@@ -6,7 +6,6 @@ import {
   View,
   AppState,
   Keyboard,
-  Platform,
 } from 'react-native';
 import {border, fonts, isTablet, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
@@ -101,12 +100,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.main,
     borderRadius: border.radius,
     color: colors.main_font,
-    fontFamily: Platform.OS === 'ios' ? fonts.medium : fonts.thin,
+    fontFamily: fonts.xthin,
     textAlignVertical: 'top',
     height: isTablet ? '55%' : '45%',
     marginTop: border.lateral_span,
     padding: border.lateral_span * 2,
-    fontSize: wp(4.2),
+    fontSize: wp(5),
     elevation: 5,
     shadowColor: shadow.color,
     shadowOpacity: shadow.opacity,

@@ -6,7 +6,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {border, shadow} from '../../constants';
+import {border, fonts, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import LinearGradient from 'react-native-linear-gradient';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
@@ -27,10 +27,10 @@ function TrackCard({song, lyrics, navigation}) {
     const roman = 'aeiouțșăâî';
     for (let i = 0; i < roman.length; i++) {
       if (text.toLowerCase().includes(roman[i])) {
-        return {fontName: 'CMGSans-BoldRounded', fontSize: wp(6)};
+        return {fontName: fonts.rounded, fontSize: wp(6)};
       }
     }
-    return {fontName: 'CMGSans-BoldRounded', fontSize: wp(6.5)};
+    return {fontName: fonts.rocko, fontSize: wp(6.5)};
   }
 
   const headerTitleStyle = {

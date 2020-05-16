@@ -79,7 +79,7 @@ function FeedbackDisplay(props) {
   useEffect(() => {
     displayFeedBackList(props.theme);
     BackHandler.addEventListener('hardwareBackPress', handleBackButton);
-  }, [handleBackButton, props.theme]);
+  }, []);
 
   return (
     <LinearGradient

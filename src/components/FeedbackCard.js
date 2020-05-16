@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     fontSize: wp(4),
   },
   messageStyle: {
-    fontFamily: Platform.OS === 'ios' ? null : fonts.xthin,
+    fontFamily: fonts.xthin,
     color: colors.second_font,
     marginVertical: hp(1.5),
     fontSize: wp(4),
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   ratingStyle: {
-    fontFamily: Platform.OS === 'ios' ? null : fonts.rocko,
+    fontFamily: fonts.rocko,
     color: colors.second_font,
     fontSize: wp(4),
   },

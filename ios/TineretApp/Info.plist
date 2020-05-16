@@ -38,7 +38,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
@@ -64,6 +64,14 @@
 		<string>Nunito.ttf</string>
 		<string>Rocko.ttf</string>
 		<string>Thin.ttf</string>
+		<string>Rounded-Universal.otf</string>
+		<string>CMGSans-BoldRounded.otf</string>
+		<string>CMGSans-LightItalic.ttf</string>
+		<string>CMGSans-MediumItalic.ttf</string>
+		<string>Cronus-Italic.otf</string>
+		<string>HouschkaRounded-Bold.ttf</string>
+		<string>Nunito-Light.ttf</string>
+		<string>CMGSans-ExtraLightItalic.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

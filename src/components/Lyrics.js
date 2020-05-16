@@ -23,7 +23,7 @@ function Lyrics({navigation, route}) {
     return () => {
       Orientation.lockToPortrait();
     };
-  }, [navigation]);
+  }, []);
 
   const {
     songHeaderTitle,

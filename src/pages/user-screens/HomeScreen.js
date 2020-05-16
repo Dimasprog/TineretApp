@@ -63,14 +63,14 @@ function HomeScreen({navigation}) {
 
           <Text style={headerTitle}>{'Tineret BETANIA'}</Text>
 
-          <TouchableOpacity onPress={switchScreen('Settings')}>
-            <Icon
-              type={'material-community'}
-              name={'settings'}
-              color={'white'}
-              size={wp(7)}
-            />
-          </TouchableOpacity>
+          {/*<TouchableOpacity onPress={switchScreen('Settings')}>*/}
+          {/*  <Icon*/}
+          {/*    type={'material-community'}*/}
+          {/*    name={'settings'}*/}
+          {/*    color={'white'}*/}
+          {/*    size={wp(7)}*/}
+          {/*  />*/}
+          {/*</TouchableOpacity>*/}
         </View>
 
         <View style={activityContainer}>
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   },
   copyRightText: {
     color: colors.copy_right,
-    fontFamily: Platform.OS === 'ios' ? undefined : fonts.thin,
+    fontFamily: fonts.xthin,
     position: 'absolute',
     textAlign: 'center',
     alignSelf: 'center',

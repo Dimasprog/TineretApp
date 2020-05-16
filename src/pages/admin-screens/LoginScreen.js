@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     borderRadius: border.radius,
     paddingVertical: Platform.OS === 'ios' ? hp(1.8) : undefined,
     marginBottom: border.lateral_span,
-    fontFamily: Platform.OS === 'ios' ? fonts.medium : fonts.xthin,
+    fontFamily: fonts.xthin,
     paddingLeft: border.lateral_span,
     fontSize:  wp(6),
     elevation: 5,

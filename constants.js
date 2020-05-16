@@ -52,10 +52,11 @@ export const images = {
 export const fonts = {
   rounded: 'CMGSans-BoldRounded',
   medium: 'CMGSans-SemiBoldItalic',
-  thin: 'Thin',
-  xthin: 'ExtraThin',
-  cronus: 'Cronus',
-  rocko: 'Rocko',
+  thin: 'CMGSans-MediumItalic',
+  xthin: 'CMGSans-LightItalic',
+  cronus: 'Cronus-Italic',
+  rocko: 'HouschkaRounded-Bold',
+  nunito: 'Nunito-Light',
 };
 
 export const text = {
