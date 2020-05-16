@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "android": "npx react-native run-android",
-    "ios": "npx react-native run-ios",
+    "td5": "npx react-native run-ios --device=\"td5\"\n",
+    "ios": "npx react-native run-ios --simulator=\"iPad Air (3rd generation)\"\n",
     "start": "npx react-native start",
     "test": "jest",
     "lint": "eslint ."
@@ -28,6 +29,7 @@
     "react-native-safe-area-context": "^1.0.0",
     "react-native-screens": "^2.7.0",
     "react-native-simple-toast": "^1.1.2",
+    "react-native-splash-screen": "^3.2.0",
     "react-native-star-rating": "^1.1.0",
     "react-native-vector-icons": "^6.6.0"
   },

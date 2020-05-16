@@ -1,44 +1,48 @@
 import React from 'react';
-import {Keyboard, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {border} from '../../constants';
-import {colors} from '../ColorSchemes';
-import Lyrics from './Lyrics';
-import LinearGradient from 'react-native-linear-gradient';
 import {
-  widthPercentageToDP as wp,
-} from 'react-native-responsive-screen';
+  Keyboard,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
+import {border, fonts, shadow} from '../../constants';
+import {colors} from '../ColorSchemes';
+import LinearGradient from 'react-native-linear-gradient';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 function TrackCard({song, lyrics, navigation}) {
-
   function openLyricsScreen() {
     const lyricsProps = {
       songHeaderTitleStyle: headerTitleStyle,
       songHeaderTitle: song,
       songLyricsStyle: lyricsStyle,
-      songLyrics: lyrics
-    }
+      songLyrics: lyrics,
+    };
     Keyboard.dismiss();
-    navigation.navigate("Lyrics", lyricsProps);
+    navigation.navigate('Lyrics', lyricsProps);
   }
 
   function setTrackProperties(text) {
-    const roman = "aeiouțșăâî";
-    for (let i = 0; i < roman.length; i++)
-      if (text.toLowerCase().includes(roman[i]))
-        return {fontName: 'CMGSans-BoldRounded', fontSize: wp(6)};
-    return {fontName: 'Rocko', fontSize: wp(6.5)};
+    const roman = 'aeiouțșăâî';
+    for (let i = 0; i < roman.length; i++) {
+      if (text.toLowerCase().includes(roman[i])) {
+        return {fontName: fonts.rounded, fontSize: wp(6)};
+      }
+    }
+    return {fontName: fonts.rocko, fontSize: wp(6.5)};
   }
 
   const headerTitleStyle = {
     color: colors.main_font,
-    // fontFamily: setTrackProperties(song).fontName,
+    fontFamily: setTrackProperties(song).fontName,
     fontSize: setTrackProperties(song).fontSize,
     alignSelf: 'center',
   };
 
   const titleCardStyle = {
     color: colors.main_font,
-    // fontFamily: setTrackProperties(song).fontName,
+    fontFamily: setTrackProperties(song).fontName,
     fontSize: setTrackProperties(song).fontSize,
     paddingHorizontal: border.lateral_span,
     paddingVertical: border.top_span,
@@ -46,7 +50,7 @@ function TrackCard({song, lyrics, navigation}) {
 
   const lyricsStyle = {
     color: colors.second_font,
-    // fontFamily: setTrackProperties(song).fontName,
+    fontFamily: setTrackProperties(song).fontName,
     fontSize: setTrackProperties(song).fontSize + 1,
     marginTop: border.lateral_span,
     marginBottom: border.lateral_span * 2,
@@ -54,10 +58,7 @@ function TrackCard({song, lyrics, navigation}) {
   };
 
   const gradient = {
-    color: [
-      colors.main,
-      colors.trackCardGradient,
-    ],
+    color: [colors.main, colors.trackCardGradient],
     start: {
       x: 0,
       y: 1,
@@ -71,12 +72,15 @@ function TrackCard({song, lyrics, navigation}) {
   const {touchableOpacity, iosElevation} = activityStyles;
 
   return (
-    <TouchableOpacity style={iosElevation} activeOpacity={.7} onPress={() => openLyricsScreen()}>
-      <LinearGradient style={touchableOpacity}
-                      colors={gradient.color}
-                      start={gradient.start}
-                      end={gradient.end}
-      >
+    <TouchableOpacity
+      style={iosElevation}
+      activeOpacity={0.7}
+      onPress={() => openLyricsScreen()}>
+      <LinearGradient
+        style={touchableOpacity}
+        colors={gradient.color}
+        start={gradient.start}
+        end={gradient.end}>
         <Text style={titleCardStyle}>{song}</Text>
       </LinearGradient>
     </TouchableOpacity>
@@ -91,11 +95,11 @@ const activityStyles = StyleSheet.create({
     elevation: 10,
   },
   iosElevation: {
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5}
-  }
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: { width: 0, height: shadow.height }
+  },
 });
 
 export default TrackCard;

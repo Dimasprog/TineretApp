@@ -4,6 +4,7 @@ import {
   BackHandler,
   FlatList,
   Keyboard,
+  Platform,
   RefreshControl,
   SafeAreaView,
   StatusBar,
@@ -14,7 +15,7 @@ import {
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import Modal from 'react-native-modal';
-import {border, fonts, playList} from '../../../constants';
+import {border, fonts, playList, shadow} from '../../../constants';
 import {colors} from '../../ColorSchemes';
 import TrackCard from '../../components/TrackCard';
 import * as fs from 'react-native-fs';
@@ -128,7 +129,7 @@ function AlbumScreen({navigation}) {
   const {
     headerContainer,
     searchButton,
-    backButtonText,
+    backButton,
     topContainer,
     searchContainer,
     searchInput,
@@ -144,7 +145,7 @@ function AlbumScreen({navigation}) {
       <View style={headerContainer}>
         <View style={topContainer}>
           <TouchableOpacity
-            style={backButtonText}
+            style={backButton}
             onPress={() => onBackPressed()}>
             <Icon
               type={'material-community'}
@@ -233,7 +234,7 @@ const styles = StyleSheet.create({
   topContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     padding: border.lateral_span,
     paddingBottom: border.lateral_span / 2,
@@ -245,15 +246,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: border.lateral_span / 2 - 1,
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5},
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   searchInput: {
     backgroundColor: colors.search_bar.background,
     color: colors.search_bar.color,
-    // fontFamily: fonts.medium,
+    fontFamily: fonts.medium,
     borderRadius: border.radius,
     width: wp(76),
     paddingLeft: wp(2.5),
@@ -264,14 +265,11 @@ const styles = StyleSheet.create({
     marginRight: 3,
     padding: 1,
   },
-  backButtonText: {
-    color: colors.main_font,
-    // fontFamily: fonts.rounded,
-    fontSize: wp(6),
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 2,
-    shadowOffset: {width: 0, height: 2},
+  backButton: {
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius - 1,
+    shadowOffset: { width: 0, height: shadow.height - 1 },
   },
 });
 

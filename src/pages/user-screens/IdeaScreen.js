@@ -1,8 +1,7 @@
 import React from 'react';
 import SendText from '../../components/SendText';
 
-function IdeaScreen ({navigation}) {
-
+function IdeaScreen({navigation}) {
   const ideaActivityObject = {
     titleName: 'Trimite o idee',
     toastSuccess: 'Mesajul a fost trimis!',
@@ -11,7 +10,10 @@ function IdeaScreen ({navigation}) {
   };
 
   return (
-    <SendText goBack={() => navigation.goBack()} activityObject={ideaActivityObject}/>
+    <SendText
+      goBack={() => navigation.goBack()}
+      activityObject={ideaActivityObject}
+    />
   );
 }
 

@@ -1,6 +1,6 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {border, fonts} from '../../constants';
+import {border, fonts, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import {
   heightPercentageToDP as hp,
@@ -8,12 +8,19 @@ import {
 } from 'react-native-responsive-screen';
 
 function FeedbackCard(props) {
-
-  const {mainContainer, topContainer, topTextStyle, typeStyle, messageStyle, ratingStyle, ratingContainer} = styles;
+  const tabs = Platform.OS === 'ios' ? '\t\t\t\t' : '\t\t\t\t\t';
+  const {
+    mainContainer,
+    topContainer,
+    topTextStyle,
+    typeStyle,
+    messageStyle,
+    ratingStyle,
+    ratingContainer,
+  } = styles;
 
   return (
     <View style={mainContainer}>
-
       <View style={topContainer}>
         <Text style={topTextStyle}>{props.date}</Text>
         <Text style={topTextStyle}>{props.name}</Text>
@@ -23,21 +30,28 @@ function FeedbackCard(props) {
 
       {props.message ? <Text style={messageStyle}>{props.message}</Text> : null}
 
-      {props.rating ?
-      <View>
-        <View style={ratingContainer}>
-          <Text style={ratingStyle}>{'Estetică: ' + props.rating.aesthetic + '\t\t\t\t'}</Text>
-          <Text style={ratingStyle}>{'Învățămînt: ' + props.rating.distraction}</Text>
+      {props.rating ? (
+        <View>
+          <View style={ratingContainer}>
+            <Text style={ratingStyle}>
+              {'Estetică: ' + props.rating.aesthetic + tabs}
+            </Text>
+            <Text style={ratingStyle}>
+              {'Învățămînt: ' + props.rating.distraction}
+            </Text>
+          </View>
+          <View style={ratingContainer}>
+            <Text style={ratingStyle}>
+              {'Sustragere: ' + props.rating.learning + '\t\t\t'}
+            </Text>
+            <Text style={ratingStyle}>
+              {'Distracție: ' + props.rating.reality}
+            </Text>
+          </View>
         </View>
-        <View style={ratingContainer}>
-          <Text style={ratingStyle}>{'Sustragere: ' + props.rating.learning + '\t\t\t'}</Text>
-          <Text style={ratingStyle}>{'Distracție: ' + props.rating.reality}</Text>
-        </View>
-      </View>
-        : null
-      }
+      ) : null}
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -48,10 +62,10 @@ const styles = StyleSheet.create({
     marginHorizontal: border.lateral_span,
     marginVertical: border.lateral_span / 2,
     elevation: 10,
-    shadowColor: colors.shadow_color,
-    shadowOffset: {width: 0, height: 5},
-    shadowOpacity: 1,
-    shadowRadius: 5,
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   topContainer: {
     display: 'flex',
@@ -60,17 +74,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   topTextStyle: {
-    // fontFamily: fonts.medium,
+    fontFamily: fonts.medium,
     color: colors.second_font,
     fontSize: wp(4),
   },
   typeStyle: {
-    // fontFamily: fonts.rounded,
+    fontFamily: fonts.rounded,
     color: colors.second_font,
     fontSize: wp(4),
   },
   messageStyle: {
-    // fontFamily: fonts.xthin,
+    fontFamily: fonts.xthin,
     color: colors.second_font,
     marginVertical: hp(1.5),
     fontSize: wp(4),
@@ -80,7 +94,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   ratingStyle: {
-    // fontFamily: fonts.rocko,
+    fontFamily: fonts.rocko,
     color: colors.second_font,
     fontSize: wp(4),
   },

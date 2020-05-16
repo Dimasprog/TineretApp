@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-// import SplashScreen from 'react-native-splash-screen';
+import SplashScreen from 'react-native-splash-screen';
 import {
   StyleSheet,
   View,
@@ -9,6 +9,7 @@ import {
   StatusBar,
   SafeAreaView,
   Vibration,
+  Platform,
 } from 'react-native';
 import ActivityCard from '../../components/ActivityCard';
 import {images, text, border, fonts} from '../../../constants';
@@ -16,13 +17,18 @@ import {colors} from '../../ColorSchemes';
 import Orientation from 'react-native-orientation';
 import LinearGradient from 'react-native-linear-gradient';
 import {Icon} from 'react-native-elements';
-import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
 
 function HomeScreen({navigation}) {
   useEffect(() => {
     Orientation.lockToPortrait();
-    // SplashScreen.hide();
-    return () => {Orientation.lockToPortrait()}
+    SplashScreen.hide();
+    return () => {
+      Orientation.lockToPortrait();
+    };
   }, []);
 
   function switchScreen(screen) {
@@ -45,7 +51,10 @@ function HomeScreen({navigation}) {
     <LinearGradient
       colors={[colors.main, colors.background]}
       style={mainContainer}>
-      <StatusBar backgroundColor={colors.status_bar.alternative} />
+      <StatusBar
+        backgroundColor={colors.status_bar.alternative}
+        barStyle={'light-content'}
+      />
       <SafeAreaView style={{marginBottom: hp(3)}}>
         <View style={headerContainer}>
           <TouchableOpacity onLongPress={switchScreen('Login')}>
@@ -54,21 +63,30 @@ function HomeScreen({navigation}) {
 
           <Text style={headerTitle}>{'Tineret BETANIA'}</Text>
 
-          <TouchableOpacity onPress={switchScreen('Settings')}>
-            <Icon
-              type={'material-community'}
-              name={'settings'}
-              color={'white'}
-              size={wp(7)}
-            />
-          </TouchableOpacity>
+          {/*<TouchableOpacity onPress={switchScreen('Settings')}>*/}
+          {/*  <Icon*/}
+          {/*    type={'material-community'}*/}
+          {/*    name={'settings'}*/}
+          {/*    color={'white'}*/}
+          {/*    size={wp(7)}*/}
+          {/*  />*/}
+          {/*</TouchableOpacity>*/}
         </View>
 
         <View style={activityContainer}>
-          <ActivityCard picture={images.album} onPress={switchScreen('Album')} />
-          <ActivityCard picture={images.question} onPress={switchScreen('Question')} />
+          <ActivityCard
+            picture={images.album}
+            onPress={switchScreen('Album')}
+          />
+          <ActivityCard
+            picture={images.question}
+            onPress={switchScreen('Question')}
+          />
           <ActivityCard picture={images.idea} onPress={switchScreen('Idea')} />
-          <ActivityCard picture={images.review} onPress={switchScreen('Review')} />
+          <ActivityCard
+            picture={images.review}
+            onPress={switchScreen('Review')}
+          />
         </View>
         <Text style={copyRightText}>{text.copyRight}</Text>
       </SafeAreaView>
@@ -79,8 +97,8 @@ function HomeScreen({navigation}) {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: colors.background,
     paddingVertical: border.top_span,
+    paddingTop: Platform.OS === 'ios' ? border.top_span * 2 : null,
     paddingHorizontal: border.lateral_span,
   },
   headerContainer: {
@@ -91,7 +109,7 @@ const styles = StyleSheet.create({
     marginBottom: border.top_span,
   },
   headerTitle: {
-    // fontFamily: fonts.rounded,
+    fontFamily: fonts.rounded,
     color: 'white',
     textAlign: 'center',
     fontSize: wp(6),
@@ -107,7 +125,7 @@ const styles = StyleSheet.create({
   },
   copyRightText: {
     color: colors.copy_right,
-    fontFamily: fonts.thin,
+    fontFamily: fonts.xthin,
     position: 'absolute',
     textAlign: 'center',
     alignSelf: 'center',

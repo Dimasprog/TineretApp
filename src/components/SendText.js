@@ -1,18 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, TextInput, StatusBar, View, AppState, Keyboard} from 'react-native';
-import {border, fonts} from '../../constants';
+import {
+  StyleSheet,
+  TextInput,
+  StatusBar,
+  View,
+  AppState,
+  Keyboard,
+} from 'react-native';
+import {border, fonts, isTablet, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import LinearGradient from 'react-native-linear-gradient';
 import Header from './Header';
 import SendButton from './SendButton';
 import NameLabel from './NameLabel';
 import PostRequest from '../models/PostRequest';
-import {
-  widthPercentageToDP as wp,
-} from 'react-native-responsive-screen';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 
-function SendText (props) {
+function SendText(props) {
   const [textInputData, setTextInputData] = useState('');
   const [userName, setUserName] = useState('');
 
@@ -40,33 +45,45 @@ function SendText (props) {
 
   useEffect(() => {
     AppState.addEventListener('change', () => Keyboard.dismiss());
-  }, [])
+  }, []);
 
   const {textInput, mainContainer} = styles;
 
   return (
-    <LinearGradient style={mainContainer} colors={[colors.background, colors.main]}>
-      <StatusBar barStyle={colors.status_bar.font_color}
-                 backgroundColor={colors.status_bar.background}
+    <LinearGradient
+      style={mainContainer}
+      colors={[colors.background, colors.main]}>
+      <StatusBar
+        barStyle={colors.status_bar.font_color}
+        backgroundColor={colors.status_bar.background}
       />
-      <SafeAreaProvider><SafeAreaView>
-        <View style={{marginBottom: border.lateral_span / 2}}>
-          <Header themeColor={colors.second_font} title={props.activityObject.titleName} pressEvent={() => props.goBack()}/>
-        </View>
+      <SafeAreaProvider>
+        <SafeAreaView>
+          <View style={{marginBottom: border.lateral_span / 2}}>
+            <Header
+              themeColor={colors.second_font}
+              title={props.activityObject.titleName}
+              pressEvent={() => props.goBack()}
+            />
+          </View>
 
-        <NameLabel onFinalizedEdit={setCallBackUserName}/>
+          <NameLabel onFinalizedEdit={setCallBackUserName} />
 
-        <TextInput
-          style={textInput}
-          multiline={true}
-          selectionColor={colors.alternative}
-          keyboardAppearance={colors.keyboard_appearance}
-          value={textInputData}
-          onChangeText={textInputData => setTextInputData({textInputData})}
-        />
+          <TextInput
+            style={textInput}
+            multiline={true}
+            selectionColor={colors.alternative}
+            keyboardAppearance={colors.keyboard_appearance}
+            value={textInputData}
+            onChangeText={textInputData => setTextInputData({textInputData})}
+          />
 
-        <SendButton title={'Trimite'} pressEvent={() => sendText(textInputData)} />
-      </SafeAreaView></SafeAreaProvider>
+          <SendButton
+            title={'Trimite'}
+            pressEvent={() => sendText(textInputData)}
+          />
+        </SafeAreaView>
+      </SafeAreaProvider>
     </LinearGradient>
   );
 }
@@ -83,17 +100,17 @@ const styles = StyleSheet.create({
     backgroundColor: colors.main,
     borderRadius: border.radius,
     color: colors.main_font,
-    // fontFamily: fonts.thin,
+    fontFamily: fonts.xthin,
     textAlignVertical: 'top',
-    height: '50%',
+    height: isTablet ? '55%' : '45%',
     marginTop: border.lateral_span,
     padding: border.lateral_span * 2,
     fontSize: wp(5),
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5}
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
 });
 
