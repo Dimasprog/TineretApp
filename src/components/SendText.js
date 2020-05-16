@@ -6,9 +6,9 @@ import {
   View,
   AppState,
   Keyboard,
-  Platform, Dimensions,
+  Platform,
 } from 'react-native';
-import {border, fonts, shadow} from '../../constants';
+import {border, fonts, isTablet, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import LinearGradient from 'react-native-linear-gradient';
 import Header from './Header';
@@ -17,8 +17,6 @@ import NameLabel from './NameLabel';
 import PostRequest from '../models/PostRequest';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
-
-let isTablet = Dimensions.get("window").height / Dimensions.get("window").width < 1.6;
 
 function SendText(props) {
   const [textInputData, setTextInputData] = useState('');

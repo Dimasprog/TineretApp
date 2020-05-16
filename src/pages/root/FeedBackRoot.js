@@ -1,13 +1,12 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {fonts} from '../../../constants';
+import {fonts, isTablet} from '../../../constants';
 import {colors} from '../../ColorSchemes';
 import QuestionDisplayScreen from '../admin-screens/QuestionDisplayScreen';
 import IdeaDisplayScreen from '../admin-screens/IdeaDisplayScreen';
 import ReviewDisplayScreen from '../admin-screens/ReviewDisplayScreen';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import {Platform} from 'react-native';
 
 function FeedBackRoot() {
   const Tab = createBottomTabNavigator();
@@ -21,7 +20,7 @@ function FeedBackRoot() {
       borderColor: colors.main,
     },
     labelStyle: {
-      fontSize: wp(6),
+      fontSize: wp(isTablet ? 4.5 : 6),
       fontFamily: fonts.rounded,
     },
   };

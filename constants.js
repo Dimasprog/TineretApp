@@ -3,6 +3,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {colors} from "./src/ColorSchemes";
+import {Dimensions} from "react-native";
 
 export const playList = {
   url: 'https://tineretapp.firebaseio.com/playlist.json',
@@ -88,3 +89,5 @@ export const shadow = {
   },
   height: shadowCoefficient
 }
+
+export const isTablet = Dimensions.get("window").height / Dimensions.get("window").width < 1.6;
