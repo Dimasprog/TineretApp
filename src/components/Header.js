@@ -1,12 +1,11 @@
-import {TouchableOpacity, StyleSheet, View, Text} from 'react-native';
-import {Icon} from 'react-native-elements';
-import {widthPercentageToDP as wp} from "react-native-responsive-screen";
-// import {fonts} from '../../constants';
 import React from 'react';
-import {colors} from "../ColorSchemes";
+import {TouchableOpacity, StyleSheet, View, Text, Platform} from 'react-native';
+import {fonts, shadow} from '../../constants';
+import {colors} from '../ColorSchemes';
+import {Icon} from 'react-native-elements';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
-function Header (props) {
-
+function Header(props) {
   const {themeColor, style, pressEvent, title} = props;
 
   return (
@@ -19,16 +18,17 @@ function Header (props) {
           color={themeColor}
         />
       </TouchableOpacity>
-      <Text style={{
-        color: themeColor,
-        // fontFamily: style === undefined ? fonts.rounded : style.fontFamily,
-        fontSize: style === undefined ? wp(6.5) : style.fontSize - wp(1),
-        alignSelf: 'center',
-      }}>
+      <Text
+        style={{
+          color: themeColor,
+          fontFamily: style === undefined ? fonts.rounded : style.fontFamily,
+          fontSize: style === undefined ? wp(6.5) : style.fontSize - wp(1),
+          alignSelf: 'center',
+        }}>
         {title}
       </Text>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -39,12 +39,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-    backButton: {
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 2,
-    shadowOffset: {width: 0, height: 2},
-    }
+  backButton: {
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius - 1,
+    shadowOffset: { width: 0, height: shadow.height - 1 },
+  },
 });
 
 export default Header;

@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>TineretApp</string>
+	<string>Tineret</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>0.9.5</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -39,28 +39,11 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
-		<string>CMGSans-BoldRounded.ttf</string>
-		<string>CMGSans-SemiBoldItalic.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>
-		<string>ExtraThin.ttf</string>
 		<string>Feather.ttf</string>
 		<string>FontAwesome.ttf</string>
 		<string>FontAwesome5_Brands.ttf</string>
@@ -71,12 +54,45 @@
 		<string>Ionicons.ttf</string>
 		<string>MaterialCommunityIcons.ttf</string>
 		<string>MaterialIcons.ttf</string>
-		<string>Nunito.ttf</string>
 		<string>Octicons.ttf</string>
-		<string>Rocko.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
-		<string>Thin.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>CMGSans-BoldRounded.ttf</string>
+		<string>CMGSans-SemiBoldItalic.ttf</string>
+		<string>Cronus.otf</string>
+		<string>ExtraThin.ttf</string>
+		<string>Nunito.ttf</string>
+		<string>Rocko.ttf</string>
+		<string>Thin.ttf</string>
+		<string>Rounded-Universal.otf</string>
+		<string>CMGSans-BoldRounded.otf</string>
+		<string>CMGSans-LightItalic.ttf</string>
+		<string>CMGSans-MediumItalic.ttf</string>
+		<string>Cronus-Italic.otf</string>
+		<string>HouschkaRounded-Bold.ttf</string>
+		<string>Nunito-Light.ttf</string>
+		<string>CMGSans-ExtraLightItalic.ttf</string>
 	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+	</dict>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

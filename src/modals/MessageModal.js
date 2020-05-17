@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
-import {border, fonts} from '../../constants';
+import {Platform, StyleSheet, TextInput, View} from 'react-native';
+import {border, fonts, shadow} from '../../constants';
 import {colors} from '../ColorSchemes';
 import ModalButton from '../components/ModalButton';
 import * as NetInfo from '@react-native-community/netinfo';
 import SimpleToast from 'react-native-simple-toast';
 import {
   heightPercentageToDP as hp,
-  widthPercentageToDP as wp
+  widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 
 function MessageModal(props) {
@@ -18,15 +18,24 @@ function MessageModal(props) {
 
     NetInfo.fetch().then(state => {
       if (message) {
-        if (!state.isConnected)
-          SimpleToast.showWithGravity('Conectează internetul pentru a salva mesajul!', SimpleToast.LONG, SimpleToast.TOP);
-        else {
+        if (!state.isConnected) {
+          SimpleToast.showWithGravity(
+            'Conectează internetul pentru a salva mesajul!',
+            SimpleToast.LONG,
+            SimpleToast.TOP,
+          );
+        } else {
           props.onSave(message);
-          SimpleToast.showWithGravity('Salvat!', SimpleToast.SHORT, SimpleToast.CENTER);
+          SimpleToast.showWithGravity(
+            'Salvat!',
+            SimpleToast.SHORT,
+            SimpleToast.CENTER,
+          );
           props.modalVisible(false);
         }
-      } else
-        props.modalVisible(false)
+      } else {
+        props.modalVisible(false);
+      }
     });
   }
 
@@ -42,9 +51,9 @@ function MessageModal(props) {
         value={textInputData}
         onChangeText={textInputData => setTextInputData({textInputData})}
       />
-      <ModalButton title={'Salvează'} onPress={() => onSaveMessage()}/>
+      <ModalButton title={'Salvează'} onPress={() => onSaveMessage()} />
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -54,20 +63,21 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignSelf: 'center',
     width: wp(80),
+    marginBottom: Platform.OS === 'ios' ? hp(30) : null,
     padding: 10,
     elevation: 5,
-    shadowColor: colors.shadow_color,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 5}
+    shadowColor: shadow.color,
+    shadowOpacity: shadow.opacity,
+    shadowRadius: shadow.radius,
+    shadowOffset: shadow.offset,
   },
   textInput: {
     color: colors.main_font,
     minHeight: hp(30),
     maxHeight: hp(45),
-    // fontFamily: fonts.thin,
+    fontFamily: fonts.xthin,
     textAlignVertical: 'top',
-    fontSize: wp(4),
+    fontSize: wp(5),
   },
 });
 
