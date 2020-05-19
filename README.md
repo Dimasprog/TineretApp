@@ -1,1 +1,1 @@
-![](App_review.gif)
+![](./src/assets/App_review.gif)
