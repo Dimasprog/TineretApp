@@ -6,16 +6,16 @@ import {colors} from "./src/ColorSchemes";
 import {Dimensions} from "react-native";
 
 export const playList = {
-  url: 'https://tineretapp.firebaseio.com/playlist.json',
+  url: 'https://***.firebaseio.com/list.json',
   local_path: fs.DocumentDirectoryPath + '/Track_List.json',
 };
 
 export const admins = {
-  url: 'https://tineretapp.firebaseio.com/login.json',
+  url: 'https://***.firebaseio.com/authentication.json',
 };
 
 export const feedBack = {
-  url: 'https://tineretapp.firebaseio.com/feedback.json',
+  url: 'https://***.firebaseio.com/feed.json',
   api_url: 'https://tineretapp.firebaseio.com/feedback/',
 };
 
